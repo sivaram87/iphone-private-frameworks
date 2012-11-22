@@ -18,6 +18,5 @@ from
 
 */
 #include <IOSurface/IOSurfaceAPI.h>
-#include <IOSurface/IOSurfaceAccelerator.h>
 
 #endif
