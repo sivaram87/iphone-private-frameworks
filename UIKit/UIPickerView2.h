@@ -7,7 +7,6 @@
 #import <UIKit/UIPickerView.h>
 #import "UIKit-Structs.h"
 #import <UIKit/UIView.h>
-#import <Availability2.h>
 
 @class NSMutableArray;
 @protocol UIPickerViewDelegate, UIPickerViewDataSource;
@@ -36,7 +35,6 @@
 -(void)reloadComponent:(int)component;
 -(id)pickerImageNamePrefix;
 -(id)_selectionBarSuffix;
--(id)_popoverSuffix __OSX_AVAILABLE_STARTING(__MAC_NA, __IPHONE_3_2);
 -(id)imageForPickerPiece:(int)pickerPiece;
 -(CGRect)_selectionBarRectForHeight:(float)height;
 -(id)_createViewForPickerPiece:(int)pickerPiece;
