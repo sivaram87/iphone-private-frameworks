@@ -12,9 +12,9 @@
 @interface CandWord : NSObject <NSCopying> {
 	CandWordString* _word;
 }
--(id)initWithWord:(NSString*)word;
+-(id)initWithWord:(id)word;
 -(void)dealloc;
--(NSString*)word;
+-(id)word;
 -(const char*)wordUTF8String;
 -(id)insertion;
 -(unsigned)deleteCount;

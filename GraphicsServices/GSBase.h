@@ -29,19 +29,3 @@ ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  
 */
-
-mach_port_t GSGetPurpleApplicationPort();
-Boolean GSGetTimeEventHandling();
-void GSSetTimeEventHandling(Boolean doHandleEvents);
-
-CGFloat GSStatusBarHeight();
-CGFloat GSDefaultStatusBarHeight();	// = 20
-CGFloat GSSetStatusBarHeight(CGFloat newHeight);
-
-void GSSetMainScreenInfo(CGFloat screenWidth, CGFloat screenHeight, CGFloat screenScale, int screenOrientation);
-CGRect GSFullScreenApplicationContentRect();
-CGAffineTransform GSMainScreenPositionTransform();
-CGAffineTransform GSMainScreenWindowTransform();
-int GSMainScreenOrientation();
-CGFloat GSMainScreenScaleFactor();
-CGSize GSMainScreenSize();

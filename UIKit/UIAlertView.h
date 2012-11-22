@@ -5,7 +5,7 @@
 
 #import <UIKit/UIAlert.h>
 
-@class NSString, UILabel, NSMutableArray, UIWindow, UIToolbar, UIAlertSheetTextField;
+@class NSString, UILabel, NSMutableArray, UIWindow, UIToolbar;
 @protocol UIAlertViewDelegate;
 
 @interface UIAlertView ()
@@ -49,7 +49,7 @@
 -(id)addTextFieldWithValue:(id)value label:(id)label;
 -(id)textFieldAtIndex:(int)index;
 -(int)textFieldCount;
--(UIAlertSheetTextField*)textField;
+-(id)textField;
 -(void)_alertSheetTextFieldReturn:(id)aReturn;
 -(id)keyboard;
 -(void)setDefaultButton:(id)button;
