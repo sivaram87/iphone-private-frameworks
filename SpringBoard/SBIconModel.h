@@ -46,9 +46,10 @@
 -(void)loadAllIcons;
 -(NSArray*)visibleIconIdentifiers;
 -(NSArray*)allIcons;
--(SBIcon*)iconForDisplayIdentifier:(NSString*)displayIdentifier;
--(SBIcon*)iconForDisplayIdentifier:(NSString*)displayIdentifier andSpotlightCategory:(id)category;
+-(id)iconForDisplayIdentifier:(id)displayIdentifier;
+-(id)iconForDisplayIdentifier:(id)displayIdentifier andSpotlightCategory:(id)category;
 -(NSDictionary*)iconState;	// {iconLists=..., buttonBar=...}
+-(id)_iconState;
 -(void)noteIconStateChangedExternally;
 -(SBButtonBar*)buttonBar;
 -(NSArray*)iconLists;
