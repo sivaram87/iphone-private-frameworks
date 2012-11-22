@@ -7,3 +7,8 @@
 
 
 
+@protocol NSLocking
+-(void)lock;
+-(void)unlock;
+@end
+

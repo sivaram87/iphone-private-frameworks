@@ -26,6 +26,8 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#import <Cocoa/Cocoa.h>
+
 @class NSError;
 @class WebDataSource;
 
@@ -69,7 +71,7 @@
     @param hostWindow The host window for the document view.
     @abstract Called before the host window is set on the parent web view.
 */
-//- (void)viewWillMoveToHostWindow:(NSWindow *)hostWindow;
+- (void)viewWillMoveToHostWindow:(NSWindow *)hostWindow;
 
 /*!
     @method viewDidMoveToHostWindow

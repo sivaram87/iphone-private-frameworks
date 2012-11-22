@@ -6,7 +6,8 @@
  */
 
 #import <GraphicsServices/GSEvent.h>
-#import <SystemConfiguration/SystemConfiguration.h>
+
+typedef struct __SCPreferences* SCPreferencesRef;
 
 typedef struct {
 	unsigned long _field1;

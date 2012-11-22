@@ -10,7 +10,6 @@
 @class NSArray, NSData;
 
 @interface CPSearchMatcher : NSObject {
-	@public
 	NSArray* _components;
 	NSData* _context;
 }

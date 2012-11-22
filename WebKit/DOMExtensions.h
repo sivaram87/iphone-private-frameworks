@@ -48,7 +48,7 @@
 @class NSURL;
 
 @interface DOMNode (DOMNodeExtensions)
-- (CGRect)boundingBox;
+- (NSRect)boundingBox;
 - (NSArray *)lineBoxRects;
 @end
 

@@ -26,7 +26,7 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
 /*!
     @constant WebPlugInBaseURLKey REQUIRED. The base URL of the document containing
@@ -71,6 +71,6 @@ extern NSString *WebPlugInContainingElementKey;
     @param arguments The arguments dictionary with the mentioned keys and objects. This method is required to implement.
     @result Returns an NSView object that conforms to the WebPlugIn informal protocol.
 */
-+ (WAKView *)plugInViewWithArguments:(NSDictionary *)arguments;
++ (NSView *)plugInViewWithArguments:(NSDictionary *)arguments;
 
 @end

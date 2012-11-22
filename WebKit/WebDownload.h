@@ -26,8 +26,6 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#if 0
-
 #import <Foundation/NSURLDownload.h>
 
 @class WebDownloadInternal;
@@ -67,5 +65,3 @@
 - (NSWindow *)downloadWindowForAuthenticationSheet:(WebDownload *)download;
 
 @end
-
-#endif
