@@ -4,14 +4,13 @@
  */
 
 #import <Foundation/NSObject.h>
-#import <GraphicsServices/GSFont.h>
 
 @class NSString;
 
 @interface UIFont ()
 +(id)__dummy;
-+(UIFont*)fontWithFamilyName:(NSString*)familyName traits:(GSFontTraitMask)traits size:(CGFloat)fontSize;
-+(UIFont*)fontWithMarkupDescription:(NSString*)markupDescription;
++(id)fontWithFamilyName:(id)familyName traits:(int)traits size:(float)size;
++(id)fontWithMarkupDescription:(id)markupDescription;
 +(float)labelFontSize;
 +(float)buttonFontSize;
 +(float)smallSystemFontSize;
@@ -22,8 +21,8 @@
 -(id)initWithCoder:(id)coder;
 -(void)encodeWithCoder:(id)coder;
 -(Class)classForCoder;
--(GSFontTraitMask)traits;
+-(int)traits;
 -(BOOL)isFixedPitch;
--(NSString*)markupDescription;
+-(id)markupDescription;
 @end
 

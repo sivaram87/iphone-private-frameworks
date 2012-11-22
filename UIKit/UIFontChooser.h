@@ -18,7 +18,7 @@
 	unsigned _sizes[15];
 	unsigned _sizeBeforeEditing;
 }
-+(UIFontChooser*)sharedFontChooser;
++(id)sharedFontChooser;
 -(id)_tableWithFrame:(CGRect)frame;
 -(CGRect)_nameTableFrame;
 -(CGRect)_separatorFrame;
@@ -39,16 +39,9 @@
 -(void)tableSelectionDidChange:(id)tableSelection;
 -(void)textFieldDidBecomeFirstResponder:(id)textField;
 -(void)textFieldDidResignFirstResponder:(id)textField;
--(NSString*)selectedFamilyName;
--(CGFloat)selectedSize;
+-(id)selectedFamilyName;
+-(float)selectedSize;
 -(void)setDelegate:(id)delegate;
 -(id)delegate;
 @end
 
-@protocol UIFontChooserDelegate
-@optional
--(void)showKeyboardForFontChooser:(UIFontChooser*)fontChooser;
--(void)hideKeyboardForFontChooser:(UIFontChooser*)fontChooser;
--(void)fontChooserDidChangeFamilyName:(UIFontChooser*)fontChooser;
--(void)fontChooserDidChangeSize:(UIFontChooser*)fontChooser;
-@end

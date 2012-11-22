@@ -7,12 +7,6 @@
 
 @class NSArray;
 
-typedef enum {
-	UIITunesStoreURLTypeInvalid,
-	UIITunesStoreURLTypeMusicStore,
-	UIITunesStoreURLTypeAppStore,
-} UIITunesStoreURLType;
-
 @interface UIITunesStoreURLResolver : NSObject {
 	NSArray* _appStoreHostPatterns;
 	NSArray* _appStorePathPatterns;
@@ -21,10 +15,10 @@ typedef enum {
 	NSArray* _musicStorePathPatterns;
 }
 +(void)invalidate;
-+(UIITunesStoreURLResolver*)sharedResolver;
++(id)sharedResolver;
 -(id)init;
 -(void)dealloc;
--(UIITunesStoreURLType)urlTypeForURL:(NSURL*)url;
+-(int)urlTypeForURL:(id)url;
 -(id)_copyRegularExpressionsFromArray:(id)array;
 -(BOOL)_string:(id)string matchesPatterns:(id)patterns;
 -(BOOL)_url:(id)url matchesHostPatterns:(id)patterns pathPatterns:(id)patterns3;

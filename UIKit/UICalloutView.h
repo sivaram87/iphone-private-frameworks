@@ -51,7 +51,7 @@
 +(id)_topAnchorImage;
 +(id)_bottomAnchorImage;
 +(float)defaultHeight;
-+(UICalloutView*)sharedCalloutView;
++(id)sharedCalloutView;
 -(void)_setLeftView:(id)view;
 -(void)_setRightView:(id)view;
 -(void)_scheduleViewToFadeIn:(id)anIn;
