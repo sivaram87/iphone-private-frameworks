@@ -8,7 +8,6 @@
 #include <CoreGraphics/CoreGraphics.h>
 #include <QuartzCore/QuartzCore.h>
 #include <pthread.h>
-#include <IOSurface/IOSurface.h>
 
 typedef struct {
 	int x;
@@ -181,6 +180,8 @@ typedef struct EAGLNativeWindowCallbacksRec {
 typedef struct x_list_struct x_list_struct;
 
 typedef struct _CAImageQueue* CAImageQueueRef;
+
+typedef struct __IOSurface* IOSurfaceRef;
 
 @class CAEAGLLayer;
 typedef struct _CAEAGLNativeWindow {
