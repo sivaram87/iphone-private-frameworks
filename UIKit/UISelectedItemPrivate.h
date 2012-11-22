@@ -15,3 +15,5 @@
 -(void)setSelected:(BOOL)selected;
 -(void)unselect;
 @end
+
+#endif

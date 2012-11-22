@@ -8,8 +8,6 @@
 #import <UIKit/UIView.h>
 #import <Availability2.h>
 
-@class UIRoundedCornerView;
-
 __attribute__((visibility("hidden")))
 @interface UILayoutContainerView : UIView <NSCoding> {
 	id _delegate;
