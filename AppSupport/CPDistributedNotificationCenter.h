@@ -18,10 +18,10 @@
 	NSMutableDictionary* _sendPorts;
 	unsigned _startCount;
 }
-+(CPDistributedNotificationCenter*)centerNamed:(NSString*)centerName;
--(id)_initWithServerName:(NSString*)serverName;
++(id)centerNamed:(id)named;
+-(id)_initWithServerName:(id)serverName;
 // inherited: -(void)dealloc;
--(NSString*)name;
+-(id)name;
 -(void)_createReceiveSourceForRunLoop:(CFRunLoopRef)runLoop;
 -(void)_checkIn;
 -(void)_checkOutAndRemoveSource;
@@ -29,11 +29,11 @@
 -(void)startDeliveringNotificationsToMainThread;
 -(void)startDeliveringNotificationsToRunLoop:(CFRunLoopRef)runLoop;
 -(void)stopDeliveringNotifications;
--(void)deliverNotification:(NSString*)notification userInfo:(NSDictionary*)info;
+-(void)deliverNotification:(id)notification userInfo:(id)info;
 -(void)runServerOnCurrentThread;
--(void)postNotificationName:(NSString*)name;
--(void)postNotificationName:(NSString*)name userInfo:(NSDictionary*)info;
--(BOOL)postNotificationName:(NSString*)name userInfo:(NSDictionary*)info toBundleIdentifier:(NSString*)bundleIdentifier;
+-(void)postNotificationName:(id)name;
+-(void)postNotificationName:(id)name userInfo:(id)info;
+-(BOOL)postNotificationName:(id)name userInfo:(id)info toBundleIdentifier:(id)bundleIdentifier;
 -(void)_receivedCheckIn:(unsigned)anIn auditToken:(XXStruct_kUSYWB*)token;
 -(void)_receivedCheckOut:(CFMachPortRef)anOut;
 @end
