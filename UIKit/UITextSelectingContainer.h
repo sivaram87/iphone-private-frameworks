@@ -15,13 +15,11 @@
 @property(readonly, assign, nonatomic, getter=isEditable) BOOL editable;
 @property(readonly, assign, nonatomic, getter=isEditing) BOOL editing;
 -(void)beginSelectionChange;
+-(void)updateSelection;
 -(void)endSelectionChange;
--(CGRect)selectionClipRect;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_3_2
--(void)updateSelection
 -(void)detachSelectionView;
 -(void)detachInteractionAssistant;
-#endif
+-(CGRect)selectionClipRect;
 @optional
 -(BOOL)playsNicelyWithGestures;
 -(BOOL)mightHaveLinks;

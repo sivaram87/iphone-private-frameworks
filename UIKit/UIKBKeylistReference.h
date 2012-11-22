@@ -43,3 +43,4 @@
 -(void)setFlags:(unsigned)flags setStartKeyIndex:(int)startIndex setEndKeyIndex:(int)endIndex;
 -(void)setNameElements:(NSArray*)elements;
 @end
+

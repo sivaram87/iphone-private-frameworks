@@ -5,21 +5,12 @@
 
 #import "UIKit-Structs.h"
 #import <Foundation/NSObject.h>
-#import <Availability2.h>
 
 @class UIWebDocumentView, UIWebSelectionView, UIWebSelection;
 
-@interface UIWebSelectionAssistant : NSObject 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-<UILongPressGestureRecognizerDelegate>
-#endif
-{
+@interface UIWebSelectionAssistant : NSObject {
 	UIWebDocumentView* _webView;
 	UIWebSelectionView* _tintView;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-	UILongPressGestureRecognizer* _longPressGestureRecognizer;
-	UITapAndAHalfRecognizer* _tapAndAHalfGestureRecognizer;
-#endif
 	BOOL _enabled;
 }
 @property(assign, nonatomic) BOOL enabled;
@@ -29,6 +20,7 @@
 -(void)dealloc;
 -(void)setGestureRecognizers;
 -(void)selectionChanged;
+-(void)longPress:(id)press;
 -(void)tap:(id)tap;
 -(void)scaleChanged;
 -(id)hitTest:(CGPoint)test withEvent:(id)event fromView:(id)view;
@@ -39,13 +31,5 @@
 -(void)layoutChanged;
 -(void)willRotate:(id)rotate;
 -(void)didRotate:(id)rotate;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-// in a protocol: -(BOOL)gestureRecognizerShouldBegin:(id)gestureRecognizer;
-// in a protocol: -(BOOL)gestureRecognizer:(id)recognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)gestureRecognizer;
--(void)clearSelection;
--(void)makeWebSelection:(id)selection;
-#else
--(void)longPress:(id)press;
-#endif
 @end
 

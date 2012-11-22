@@ -5,16 +5,12 @@
 
 #import "UIKit-Structs.h"
 #import <UIKit/UIButton.h>
-#import <Availability2.h>
 
 @class NSTimer;
 
 @interface UICalloutBarButton : UIButton {
 	SEL m_action;
 	int m_position;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-	int m_type;
-#endif
 	NSTimer* m_flashTimer;
 	float m_contentWidth;
 	float m_contentScale;
@@ -22,45 +18,29 @@
 	BOOL m_isText;
 	BOOL m_configured;
 	BOOL m_single;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-	BOOL m_padLeft;
-	BOOL m_padRight;
-#endif
 }
 @property(readonly, assign, nonatomic) SEL action;
 @property(readonly, assign, nonatomic) float contentWidth;
 @property(readonly, assign, nonatomic) float contentScale;
-// inherited: -(void)dealloc;
++(id)buttonWithTitle:(NSString*)title action:(SEL)action inView:(id)view;
++(id)buttonWithImage:(id)image action:(SEL)action inView:(id)view;
+-(void)setupWithTitle:(id)title action:(SEL)action;
+-(void)setupWithImage:(id)image action:(SEL)action;
+-(void)dealloc;
 -(void)configureLabel;
-// inherited: -(void)layoutSubviews;
+-(void)layoutSubviews;
 -(void)removeFromSuperview;
-// inherited: -(CGRect)titleRectForContentRect:(CGRect)contentRect;
-// inherited: -(CGRect)imageRectForContentRect:(CGRect)contentRect;
+-(CGRect)titleRectForContentRect:(CGRect)contentRect;
+-(CGRect)imageRectForContentRect:(CGRect)contentRect;
+-(void)configureForSingle;
+-(void)configureForLeftPosition;
 -(void)configureForMiddlePosition;
+-(void)configureForRightPosition;
 -(void)setContentScale:(float)scale;
-// inherited: -(void)setHighlighted:(BOOL)highlighted;
+-(void)setHighlighted:(BOOL)highlighted;
 -(void)sendCallback;
 -(void)cancelFlash;
 -(void)flash;
 -(void)flashCallback:(id)callback;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-@property(readonly, assign, nonatomic) int type;
-+(id)buttonWithTitle:(id)title action:(SEL)action type:(int)type inView:(id)view;
-+(id)buttonWithImage:(id)image action:(SEL)action type:(int)type inView:(id)view;
--(void)_commonSetupWithAction:(SEL)action type:(int)type;
--(void)setupWithTitle:(id)title action:(SEL)action type:(int)type;
--(void)setupWithImage:(id)image action:(SEL)action type:(int)type;
--(void)configureForSingle:(int)single;
--(void)configureForLeftPosition:(int)leftPosition;
--(void)configureForRightPosition:(int)rightPosition;
-#else
-+(id)buttonWithTitle:(id)title action:(SEL)action inView:(id)view;
-+(id)buttonWithImage:(id)image action:(SEL)action inView:(id)view;
--(void)setupWithTitle:(id)title action:(SEL)action;
--(void)setupWithImage:(id)image action:(SEL)action;
--(void)configureForSingle;
--(void)configureForLeftPosition;
--(void)configureForRightPosition;
-#endif
 @end
 

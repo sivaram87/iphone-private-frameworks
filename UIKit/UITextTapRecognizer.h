@@ -3,19 +3,6 @@
  * class-dump-z is Copyright (C) 2009 by KennyTM~, licensed under GPLv3.
  */
 
-#import <Availability2.h>
-
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-
-#import <UIKit/UITapGestureRecognizer.h>
-
-@interface UITextTapRecognizer : UITapGestureRecognizer {
-}
-// inherited: -(id)initWithTarget:(id)target action:(SEL)action;
-@end
-
-#else
-
 #import "UIKit-Structs.h"
 #import "UIGestureRecognizer.h"
 
@@ -53,4 +40,3 @@
 -(BOOL)_shouldSaveGestureFromExclusion:(id)exclusion;
 @end
 
-#endif

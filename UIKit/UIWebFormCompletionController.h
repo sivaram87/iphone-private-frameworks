@@ -17,14 +17,12 @@
 	NSMutableDictionary* _items;
 }
 +(BOOL)previousDataCompletionEnabled;
++(void)setPreviousDataCompletionEnabled:(BOOL)enabled __OSX_AVAILABLE_BUT_DEPRECATED(__MAC_NA, __MAC_NA, __IPHONE_3_0, __IPHONE_3_1);
 +(BOOL)shouldSaveFormData;
 +(BOOL)addressBookCompletionEnabled;
++(void)setAddressBookCompletionEnabled:(BOOL)enabled __OSX_AVAILABLE_BUT_DEPRECATED(__MAC_NA, __MAC_NA, __IPHONE_3_0, __IPHONE_3_1);
 +(BOOL)passwordCompletionEnabled;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_3_1
-+(void)setPreviousDataCompletionEnabled:(BOOL)enabled;
-+(void)setAddressBookCompletionEnabled:(BOOL)enabled;
-+(void)setPasswordCompletionEnabled:(BOOL)enabled;
-#endif
++(void)setPasswordCompletionEnabled:(BOOL)enabled __OSX_AVAILABLE_BUT_DEPRECATED(__MAC_NA, __MAC_NA, __IPHONE_3_0, __IPHONE_3_1);
 +(BOOL)shouldSaveUsernamesAndPasswords;
 +(id)_cryptData:(id)data encode:(BOOL)encode;
 +(void)_loadCompletionDB;
@@ -67,9 +65,7 @@
 -(id)selectedListItem:(id)item;
 -(void)autoFillCommand:(id)command;
 -(BOOL)doSourceFieldCommandBySelector:(SEL)selector;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_3_2
 -(BOOL)textField:(id)field shouldHandleEvent:(GSEventRef)event;
-#endif
 -(BOOL)shouldSuppressAutocomplete;
 -(void)reflectSelectedListItem:(id)item;
 -(void)reflectFinalSelectedListItem:(id)item;

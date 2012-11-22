@@ -5,12 +5,10 @@
 
 #import "UIKit-Structs.h"
 #import <UIKit/UIView.h>
-#import <Availability2.h>
 
 @class NSArray, UIWebDragDotView, NSMutableArray;
 @protocol UITextSelectingContainer, UIWebTextRangeViewController;
 
-__attribute__((visibility("hidden")))
 @interface UIWebTextRangeView : UIView {
 	UIView<UITextSelectingContainer>* m_container;
 	NSArray* _rects;
@@ -18,14 +16,10 @@ __attribute__((visibility("hidden")))
 	UIWebDragDotView* _topDot;
 	UIWebDragDotView* _bottomDot;
 	BOOL _magnifying;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_3_2
-	id<UIWebTextRangeViewController> _controller;	
-#endif
+	id<UIWebTextRangeViewController> _controller;
 }
 @property(copy, nonatomic) NSArray* rects;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_3_2
 @property(assign, nonatomic) id<UIWebTextRangeViewController> controller;
-#endif
 @property(readonly, assign, nonatomic) UIView<UITextSelectingContainer>* container;
 -(id)initWithFrame:(CGRect)frame textContainer:(id)container;
 -(void)dealloc;

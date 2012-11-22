@@ -34,6 +34,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_1
 
+#import <UIKit/UIVideoEditorController.h>
+
 __attribute__((visibility("hidden")))
 @interface UITableViewScrollTestParameters : NSObject {
 @private

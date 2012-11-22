@@ -4,7 +4,6 @@
  */
 
 #import <Foundation/NSObject.h>
-#import <Availability2.h>
 
 @class DOMNode;
 
@@ -22,8 +21,3 @@
 -(id)methodSignatureForSelector:(SEL)selector;
 @end
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-@interface UIThreadSafeNode (UIThreadSafeNodeAdditions)
--(id)_realNode;
-@end
-#endif

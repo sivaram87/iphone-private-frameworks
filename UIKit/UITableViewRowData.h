@@ -7,11 +7,9 @@
 #import "NSCopying.h"
 #import "UITableViewRowData.h"
 #import <Foundation/NSObject.h>
-#import <Availability2.h>
 
 @class UITableView, NSIndexPath;
 
-__attribute__((visibility("hidden")))
 @interface UITableViewRowData : NSObject <NSCopying> {
 	UITableView* _tableView;
 	int _numSections;
@@ -21,10 +19,6 @@ __attribute__((visibility("hidden")))
 	float _tableViewWidth;
 	float _tableHeaderHeight;
 	float _tableFooterHeight;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-	float _tableTopPadding;
-	float _tableBottomPadding;
-#endif
 	NSIndexPath* _reorderedIndexPath;
 	float _reorderedRowHeight;
 }
@@ -33,7 +27,7 @@ __attribute__((visibility("hidden")))
 -(void)tableViewWidthDidChangeToWidth:(float)tableViewWidth;
 -(void)tableHeaderHeightDidChangeToHeight:(float)tableHeaderHeight;
 -(void)tableFooterHeightDidChangeToHeight:(float)tableFooterHeight;
-// inherited: -(void)dealloc;
+-(void)dealloc;
 -(void)ensureAllSectionsAreValid;
 -(void)invalidateAllSections;
 -(void)invalidateSection:(int)section;
@@ -72,18 +66,7 @@ __attribute__((visibility("hidden")))
 -(NSRange)globalRowsInRect:(CGRect)rect;
 -(int)globalRowForRowAtIndexPath:(id)indexPath;
 -(id)indexPathForRowAtGlobalRow:(int)globalRow;
-// in a protocol: -(id)copyWithZone:(NSZone*)zone;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-@property(assign, nonatomic) float tableTopPadding;
-@property(assign, nonatomic) float tableBottomPadding;
--(int)headerAlignmentForSection:(int)section;
--(void)setHeaderAlignment:(int)alignment forSection:(int)section;
--(int)footerAlignmentForSection:(int)section;
--(void)setFooterAlignment:(int)alignment forSection:(int)section;
--(float)maxHeaderTitleWidthForSection:(int)section;
--(float)maxFooterTitleWidthForSection:(int)section;
-// inherited: -(id)description;
-#endif
+-(id)copyWithZone:(NSZone*)zone;
 @end
 
 @interface UITableViewRowData (UITableViewRowDataPrivate)

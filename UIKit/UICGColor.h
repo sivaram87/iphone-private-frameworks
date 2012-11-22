@@ -6,22 +6,20 @@
 #import "UIKit-Structs.h"
 #import <UIKit/UIColor.h>
 
-__attribute__((visibility("hidden")))
+
 @interface UICGColor : UIColor {
-@private
 	CGColorRef cachedColor;
 }
-// inherited: -(id)initWithCGColor:(CGColorRef)cgcolor;
-// inherited: -(void)dealloc;
-// inherited: -(id)colorWithAlphaComponent:(float)alphaComponent;
-// inherited: -(void)set;
-// inherited: -(void)setFill;
-// inherited: -(void)setStroke;
+-(id)initWithCGColor:(CGColorRef)cgcolor;
+-(void)dealloc;
+-(id)colorWithAlphaComponent:(float)alphaComponent;
+-(void)set;
+-(void)setFill;
+-(void)setStroke;
 -(id)colorSpaceName;
-// inherited: -(id)description;
-// inherited: -(BOOL)isEqual:(id)equal;
-// inherited: -(unsigned)hash;
-// inherited: -(CGColorRef)CGColor;
-// inherited: -(float)alphaComponent;
+-(id)description;
+-(BOOL)isEqual:(id)equal;
+-(unsigned)hash;
+-(CGColorRef)CGColor;
 @end
 

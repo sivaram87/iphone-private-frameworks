@@ -14,10 +14,8 @@
 @interface UIColor ()
 +(void)initialize;
 +(id)allocWithZone:(NSZone*)zone;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_3_2	// these 2 colors are public in 3.2
 +(UIColor*)lightTextColor;
 +(UIColor*)darkTextColor;
-#endif
 +(UIColor*)tableSeparatorDarkColor;
 +(UIColor*)tableSeparatorLightColor;
 +(UIColor*)tableBackgroundColor;
@@ -27,6 +25,8 @@
 +(UIColor*)sectionHeaderOpaqueBackgroundColor;
 +(UIColor*)sectionHeaderBorderColor;
 +(UIColor*)tableCellBlueTextColor;
++(UIColor*)tableCellValue1BlueColor __OSX_AVAILABLE_STARTING(__MAC_NA, __IPHONE_3_1);
++(UIColor*)tableCellValue2BlueColor __OSX_AVAILABLE_STARTING(__MAC_NA, __IPHONE_3_1);
 +(UIColor*)tableCellGrayTextColor;
 +(UIColor*)textFieldAtomBlueColor;
 +(UIColor*)textFieldAtomPurpleColor;
@@ -41,26 +41,10 @@
 -(unsigned)hash;
 -(CGColorRef)cgColor;
 -(NSString*)styleString;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_1
-+(UIColor*)tableCellValue1BlueColor;
-+(UIColor*)tableCellValue2BlueColor;
-#endif
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-+(UIColor*)tableGroupedSeparatorLightColor;
-+(UIColor*)tableCellPlainBackgroundColor;
-+(UIColor*)tableCellGroupedBackgroundColor;
-+(UIColor*)tableShadowColor;
-+(UIColor*)tableGroupedTopShadowColor;
--(CGFloat)alphaComponent;
-#endif
 @end
 
 @interface UIColor (UIColorSystemColorsPrivate)
 +(UIColor*)underPageBackgroundColor;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-+(UIColor*)noContentDarkGradientBackgroundColor;
-+(UIColor*)noContentLightGradientBackgroundColor;
-#endif
 @end
 
 

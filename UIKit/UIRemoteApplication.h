@@ -4,7 +4,6 @@
  */
 
 #import <Foundation/NSObject.h>
-#import <Availability2.h>
 
 @class NSString;
 
@@ -14,11 +13,10 @@
 }
 -(id)initWithBundleIdentifier:(id)bundleIdentifier;
 -(id)initWithMachServiceName:(id)machServiceName;
-// inherited: -(void)dealloc;
+-(void)dealloc;
 -(void)updatePort;
 -(void)hideTopMostMiniAlert:(int)alert;
 -(void)showTopMostMiniAlert;
--(void)statusBarWillChangeOrientation:(int)statusBar duration:(float)duration __OSX_AVAILABLE_STARTING(__MAC_NA, __IPHONE_3_2);
 -(void)statusBarWillAnimateToHeight:(float)statusBar duration:(double)duration fence:(int)fence;
 -(void)simpleRemoteActionDidOccur:(int)simpleRemoteAction;
 -(void)sheetWithRemoteViewIdentifierDidDismiss:(id)sheetWithRemoteViewIdentifier;

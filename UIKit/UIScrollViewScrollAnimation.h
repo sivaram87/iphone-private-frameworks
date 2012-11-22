@@ -5,13 +5,12 @@
 
 #import "UIKit-Structs.h"
 #import "UIAnimation.h"
-#import <Availability2.h>
+
 
 @interface UIScrollViewScrollAnimation : UIAnimation {
 	CGPoint _originalOffset;
 	CGPoint _targetOffset;
 }
--(void)adjustForContentOffsetDelta:(CGPoint)contentOffsetDelta __OSX_AVAILABLE_STARTING(__MAC_NA, __IPHONE_3_2);
-// inherited: -(void)setProgress:(float)progress;
+-(void)setProgress:(float)progress;
 @end
 

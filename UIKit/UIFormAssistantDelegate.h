@@ -4,13 +4,10 @@
  */
 
 #import "NSObject.h"
-#import <Availability2.h>
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_3_2
 
 @protocol UIFormAssistantDelegate <NSObject>
 -(void)formAssistant:(id)assistant didBeginEditingFormNode:(id)node;
 -(void)formAssistant:(id)assistant didEndEditingFormNode:(id)node;
 @end
 
-#endif

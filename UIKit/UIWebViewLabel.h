@@ -3,16 +3,11 @@
  * class-dump-z is Copyright (C) 2009 by KennyTM~, licensed under GPLv3.
  */
 
-#import <Availability2.h>
-
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_3_2
-
 #import "UIKit-Structs.h"
 #import <UIKit/UIView.h>
 
 @class UIHighlightView, UILabel;
 
-__attribute__((visibility("hidden")))
 @interface UIWebViewLabel : UIView {
 	UILabel* _label;
 	UIHighlightView* _highlight;
@@ -23,4 +18,3 @@ __attribute__((visibility("hidden")))
 -(void)dealloc;
 @end
 
-#endif

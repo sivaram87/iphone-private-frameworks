@@ -5,42 +5,23 @@
 
 #import "UIKit-Structs.h"
 #import <UIKit/UIView.h>
-#import <Availability2.h>
 
 @class UICompletionTablePrivate;
 
-@interface UICompletionTable : UIView 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-<UITableViewDelegate, UITableViewDataSource> 
-#endif
-{
+@interface UICompletionTable : UIView {
 	UICompletionTablePrivate* _private;
 }
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-@property(assign, nonatomic) UIEdgeInsets contentInset;
-@property(assign, nonatomic) UIEdgeInsets scrollIndicatorInsets;
-#endif
-
 +(id)_cellFont;
 +(id)_shadowImage;
-// inherited: -(id)initWithFrame:(CGRect)frame;
-// inherited: -(void)dealloc;
+-(id)initWithFrame:(CGRect)frame;
+-(void)dealloc;
 -(void)layoutSubviews;
 -(void)setDelegate:(id)delegate;
 -(void)reloadData;
 -(void)setTopStrokeColor:(id)color;
--(id)_completionForRow:(int)row;
-
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
 -(int)numberOfRowsInTable:(id)table;
+-(id)_completionForRow:(int)row;
 -(id)table:(id)table cellForRow:(int)row column:(id)column reusing:(id)reusing;
 -(void)tableSelectionDidChange:(id)tableSelection;
-#else
-// in a protocol: -(int)tableView:(id)view numberOfRowsInSection:(int)section;
--(id)dequeueReusableCellWithIdentifier:(id)identifier;
-// in a protocol: -(id)tableView:(id)view cellForRowAtIndexPath:(id)indexPath;
-// in a protocol: -(void)tableView:(id)view didSelectRowAtIndexPath:(id)indexPath;
-#endif
-
 @end
 

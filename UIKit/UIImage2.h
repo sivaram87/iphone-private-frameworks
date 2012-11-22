@@ -6,8 +6,6 @@
 #import "UIKit-Structs.h"
 #import <UIKit/UIImage.h>
 #import <Foundation/NSObject.h>
-#import <IOSurface/IOSurface.h>
-#import <Availability2.h>
 
 
 @interface UIImage ()
@@ -20,16 +18,9 @@
 @end
 
 @interface UIImage (ApplicationIconPrivate)
--(id)_applicationIconImagePrecomposed:(BOOL)precomposed;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-+(int)_iconVariantForUIApplicationIconFormat:(int)uiapplicationIconFormat;
-+(id)_applicationIconImageForBundleIdentifier:(id)bundleIdentifier roleIdentifier:(id)identifier format:(int)format;
-+(id)_iconForResourceProxy:(id)resourceProxy variant:(int)variant;
--(id)_applicationIconImageForFormat:(int)format precomposed:(BOOL)precomposed;
-#else
 -(id)_applicationIconWithSize:(CGSize)size destinationFrame:(CGRect)frame shadowImage:(id)image overlayImage:(id)image4 outlineImage:(id)image5 maskImage:(id)image6;
+-(id)_applicationIconImagePrecomposed:(BOOL)precomposed;
 -(id)_smallApplicationIconImagePrecomposed:(BOOL)precomposed;
-#endif
 @end
 
 @interface UIImage (UIImageInternal)
@@ -40,12 +31,7 @@
 -(void)_setNamed:(BOOL)named;
 -(BOOL)_isNamed;
 -(id)_flatImageWithWhite:(float)white alpha:(float)alpha;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
 -(id)_bezeledImageWithRed:(float)red green:(float)green blue:(float)blue alpha:(float)alpha;
-#else
--(id)_bezeledImageWithShadowRed:(float)shadowRed green:(float)green blue:(float)blue alpha:(float)alpha fillRed:(float)red green:(float)green6 blue:(float)blue7 alpha:(float)alpha8 drawShadow:(BOOL)shadow;
--(id)_doubleBezeledImageWithExteriorShadowRed:(float)exteriorShadowRed green:(float)green blue:(float)blue alpha:(float)alpha interiorShadowRed:(float)red green:(float)green6 blue:(float)blue7 alpha:(float)alpha8 fillRed:(float)red9 green:(float)green10 blue:(float)blue11 alpha:(float)alpha12;
-#endif
 -(id)_imageScaledToSize:(CGSize)size interpolationQuality:(CGInterpolationQuality)quality;
 -(id)_imageScaledToProportion:(CGFloat)proportion interpolationQuality:(CGInterpolationQuality)quality;
 @end
@@ -84,11 +70,5 @@
 -(id)initWithCGImage:(CGImageRef)cgimage imageOrientation:(int)orientation;
 -(id)initWithIOSurface:(IOSurfaceRef)iosurface;
 -(IOSurfaceRef)ioSurface;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-+(BOOL)getDefaultDesktopImage:(id*)image modificationDate:(id*)date forVariant:(int)variant;
-+(id)_defaultBackgroundGradient;
-+(void)setDesktopImageData:(id)data forVariant:(int)variant;
--(id)_initWithIOSurface:(IOSurfaceRef)iosurface imageOrientation:(int)orientation;
-#endif
 @end
 

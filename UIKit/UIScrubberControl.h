@@ -5,7 +5,6 @@
 
 #import "UIKit-Structs.h"
 #import "UIOldSliderControl.h"
-#import <Availability2.h>
 
 @class UIView;
 
@@ -46,34 +45,34 @@
 +(BOOL)allowLayeredFillForKnob;
 -(id)initWithFrame:(CGRect)frame maxTrackWidth:(float)width showTimes:(BOOL)times knobStyle:(int)style;
 -(id)initWithFrame:(CGRect)frame maxTrackWidth:(float)width showTimes:(BOOL)times showKnob:(BOOL)knob;
-// inherited: -(id)createSliderKnobView;
--(void)setPinTimeToOutsideEdges:(BOOL)outsideEdges;
+-(id)createSliderKnobView;
+-(void)setPinTimeToOutsideEdges:(BOOL)anOutsideEdges;
 -(void)setShowTimeCenteredInAvailableArea:(BOOL)availableArea;
-// inherited: -(CGRect)sliderBounds;
-// inherited: -(id)imageForSliderPiece:(int)sliderPiece;
+-(CGRect)sliderBounds;
+-(id)imageForSliderPiece:(int)sliderPiece;
 -(const XXStruct_NwkmQC*)metrics;
 -(void)_resetTimeFrames;
-// inherited: -(void)dealloc;
+-(void)dealloc;
 -(void)setDelegate:(id)delegate;
 -(float)scrubValue;
 -(void)sizeToFit;
 -(void)setDuration:(double)duration;
 -(double)duration;
 -(double)requiredAutoUpdateDurationForDuration:(double)duration;
-// inherited: -(id)hitTest:(CGPoint)test withEvent:(id)event;
+-(id)hitTest:(CGPoint)test withEvent:(id)event;
 -(BOOL)pointInsideKnob:(CGPoint)knob forEvent:(GSEventRef)event;
 -(BOOL)pointInside:(CGPoint)inside forEvent:(GSEventRef)event;
 -(BOOL)pointInsideKnob:(CGPoint)knob withEvent:(id)event;
 -(BOOL)pointInside:(CGPoint)inside withEvent:(id)event;
 -(CGRect)hitRect;
 -(CGRect)_rectOfTrack;
-// inherited: -(CGRect)fillBounds;
+-(CGRect)fillBounds;
 -(BOOL)_notAllValueAvailable;
 -(void)setAllowsAnyValue:(BOOL)value;
-// inherited: -(void)drawSliderPiece:(int)piece inRect:(CGRect)rect;
+-(void)drawSliderPiece:(int)piece inRect:(CGRect)rect;
 -(void)_updateAvailableFill;
-// inherited: -(void)_setValue:(float)value andSendAction:(BOOL)action;
-// inherited: -(void)setValue:(float)value animated:(BOOL)animated animationCurve:(int)curve;
+-(void)_setValue:(float)value andSendAction:(BOOL)action;
+-(void)setValue:(float)value animated:(BOOL)animated animationCurve:(int)curve;
 -(void)_updateTimes:(BOOL)times;
 -(void)disableTimesLayout;
 -(void)enableTimesLayout;
@@ -81,16 +80,12 @@
 -(void)setShowDuration:(BOOL)duration;
 -(void)setScrubbingRequiresMomentaryDelay:(BOOL)delay;
 -(void)_sendDelegateDidEnterScrubbingState:(BOOL)_sendDelegate;
-// inherited: -(BOOL)beginTrackingAt:(CGPoint)at withEvent:(GSEventRef)event;
-// inherited: -(BOOL)continueTrackingAt:(CGPoint)at previous:(CGPoint)previous withEvent:(GSEventRef)event;
-// inherited: -(void)endTrackingAt:(CGPoint)at previous:(CGPoint)previous withEvent:(GSEventRef)event;
-// inherited: -(BOOL)beginTrackingWithTouch:(id)touch withEvent:(id)event;
-// inherited: -(BOOL)continueTrackingWithTouch:(id)touch withEvent:(id)event;
-// inherited: -(void)endTrackingWithTouch:(id)touch withEvent:(id)event;
+-(BOOL)beginTrackingAt:(CGPoint)at withEvent:(GSEventRef)event;
+-(BOOL)continueTrackingAt:(CGPoint)at previous:(CGPoint)previous withEvent:(GSEventRef)event;
+-(void)endTrackingAt:(CGPoint)at previous:(CGPoint)previous withEvent:(GSEventRef)event;
+-(BOOL)beginTrackingWithTouch:(id)touch withEvent:(id)event;
+-(BOOL)continueTrackingWithTouch:(id)touch withEvent:(id)event;
+-(void)endTrackingWithTouch:(id)touch withEvent:(id)event;
 -(void)setValueAvailable:(float)available;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
--(void)setTimeColor:(id)color;
--(void)setTimeShadowColor:(id)color;
-#endif
 @end
 

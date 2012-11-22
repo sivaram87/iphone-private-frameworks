@@ -5,7 +5,6 @@
 
 #import "UIKit-Structs.h"
 #import <UIKit/UIButton.h>
-#import <Availability2.h>
 
 @class NSSet, NSString, UIImage, UIColor;
 
@@ -36,6 +35,5 @@
 -(BOOL)contentsEqualTo:(id)to withStyle:(int)style;
 -(CGSize)sizeThatFits:(CGSize)fits;
 -(BOOL)_canHandleStatusBarMouseEvents:(GSEventRef)events;
--(id)_scriptingInfo __OSX_AVAILABLE_STARTING(__MAC_NA, __IPHONE_3_2);
 @end
 

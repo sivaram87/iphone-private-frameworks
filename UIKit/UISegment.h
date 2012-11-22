@@ -5,16 +5,11 @@
 
 #import "UIKit-Structs.h"
 #import <UIKit/UIView.h>
-#import <Availability2.h>
 
 @class UIColor;
 
-__attribute__((visibility("hidden")))
 @interface UISegment : UIView {
 	UIView* _info;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-	XXStruct_V8l7SB* _appearance;
-#endif
 	float _width;
 	CGSize _contentOffset;
 	UIColor* _tintColor;
@@ -35,10 +30,10 @@ __attribute__((visibility("hidden")))
 @property(assign, getter=isHighlighted) BOOL highlighted;
 @property(assign, getter=isSelected) BOOL selected;
 -(id)initWithInfo:(id)info style:(int)style size:(int)size barStyle:(int)style4 tintColor:(id)color position:(unsigned)position isDisclosure:(BOOL)disclosure autosizeText:(BOOL)text;
-// inherited: -(id)initWithCoder:(id)coder;
+-(id)initWithCoder:(id)coder;
 -(void)_populateArchivedSubviews:(id)subviews;
-// inherited: -(void)encodeWithCoder:(id)coder;
-// inherited: -(void)dealloc;
+-(void)encodeWithCoder:(id)coder;
+-(void)dealloc;
 -(id)_dividerImageForRight:(BOOL)right;
 -(void)insertDividerView;
 -(void)updateDividerViewToMatchSegment:(id)matchSegment;
@@ -68,11 +63,5 @@ __attribute__((visibility("hidden")))
 -(id)infoName;
 -(id)hitTest:(CGPoint)test withEvent:(id)event;
 -(id)hitTest:(CGPoint)test forEvent:(GSEventRef)event;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
--(void)_commonInitWithInfo:(id)info position:(unsigned)position autosizeText:(BOOL)text;
--(id)initWithInfo:(id)info appearance:(XXStruct_wXTbsB*)appearance position:(unsigned)position autosizeText:(BOOL)text;
--(id)disabledTextColor;
--(BOOL)useBlockyMagnificationInClassic;
-#endif
 @end
 

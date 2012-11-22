@@ -7,7 +7,6 @@
 #import "UIKit-Structs.h"
 #import <UIKit/UIButton.h>
 #import <UIKit/UIControl.h>
-#import <Availability2.h>
 
 @class UILabel, UIImage, UIImageView, NSString, UIColor, UIFont;
 
@@ -67,10 +66,6 @@
 -(void)setTitleShadowColor:(id)color forStates:(unsigned)states;
 -(void)setImage:(id)image forStates:(unsigned)states;
 -(void)setBackgroundImage:(id)image forStates:(unsigned)states;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
--(void)crossfadeAnimationDidStop:(id)crossfadeAnimation finished:(id)finished context:(void*)context;
--(void)crossfadeToImage:(id)image forState:(unsigned)state;
-#endif
 -(id)_font;
 -(void)_setFont:(id)font;
 -(int)_lineBreakMode;

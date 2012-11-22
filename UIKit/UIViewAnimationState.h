@@ -5,7 +5,6 @@
 
 #import "UIKit-Structs.h"
 #import <Foundation/NSObject.h>
-#import <Availability2.h>
 
 @class UIView, NSString;
 
@@ -22,11 +21,6 @@
 	float _repeatCount;
 	int _transition;
 	UIView* _transitionView;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-	int _filter;
-	UIView* _filterView;
-	float _filterValue;	
-#endif
 	SEL _willStartSelector;
 	SEL _didEndSelector;
 	int _didEndCount;
@@ -36,9 +30,7 @@
 	unsigned _cacheTransition : 1;
 	unsigned _autoreverses : 1;
 	unsigned _roundsToInteger : 1;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_3_2
 	unsigned _reserved : 27;
-#endif
 }
 +(void)pushViewAnimationState:(id)state context:(void*)context;
 +(void)popAnimationState;
