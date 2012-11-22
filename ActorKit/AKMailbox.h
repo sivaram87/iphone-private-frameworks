@@ -32,7 +32,7 @@
 -(NSMethodSignature*)methodSignatureForSelector:(SEL)selector;
 
 /// Return self.
--(id)send;
+-(AKMailbox*)send;
 
 /// Get/set dispatch queue.
 -(void)setDispatchQueue:(AKDispatchQueue*)queue;
