@@ -6,10 +6,10 @@
 #import <Foundation/NSObject.h>
 
 @class UIAlertView, UITwoSidedAlertController;
-@protocol UITwoSidedAlertControllerDelegate <NSObject>
--(void)twoSidedAlertControllerDidDismiss:(UITwoSidedAlertController*)twoSidedAlertController;
+@protocol UITwoSidedAlertDelegate
+@optional
+-(void)twoSidedAlertControllerDidDismiss:(UITwoSidedAlertController*)ctrler;
 @end
-#define UITwoSidedAlertDelegate UITwoSidedAlertControllerDelegate	// backward compatibility.
 
 @interface UITwoSidedAlertController : NSObject {
 	UIAlertView* _front;
