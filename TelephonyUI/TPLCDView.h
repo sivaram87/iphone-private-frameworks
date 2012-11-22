@@ -6,36 +6,24 @@
  */
 
 #import "TelephonyUI-Structs.h"
-#import <Availability2.h>
 #import <UIKit/UIImageView.h>
-#import "TPLCDBar.h"
 
 @class TPLCDTextView, TPLCDSubImageView;
 
-@interface TPLCDView : 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-TPLCDBar
-#else
-UIImageView 
-#endif
-{
+@interface TPLCDView : UIImageView {
 	TPLCDTextView* _textView;
 	TPLCDTextView* _secondLineTextView;
 	TPLCDTextView* _labelView;
 	TPLCDSubImageView* _imageView;
 	unsigned _layoutAsLabelled : 1;
 }
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_3_2
 +(void)preloadImages;
 +(float)defaultHeight;
 +(id)backgroundImage;
-#endif
 +(float)textFontSize;
 +(float)labelFontSize;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_3_2
 -(id)initWithDefaultSize;
 -(void)setContentsAlpha:(float)alpha;
-#endif
 -(CGRect)_text1Frame;
 -(void)setText:(id)text;
 -(id)text;

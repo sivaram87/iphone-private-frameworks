@@ -7,7 +7,6 @@
 
 #import "TelephonyUI-Structs.h"
 #import <UIKit/UIImageView.h>
-#import <Availability2.h>
 
 @class UIAlphaAnimation, TPBottomLockBar;
 
@@ -19,9 +18,5 @@
 }
 -(BOOL)pointInside:(CGPoint)inside withEvent:(id)event;
 -(void)setLockView:(id)view;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
--(BOOL)shouldBeginTracking:(id)tracking;
--(void)beginTracking:(id)tracking;
-#endif
 @end
 

@@ -20,6 +20,3 @@
 #import "TPLCDTextView.h"
 #import "TPPhonePad.h"
 #import "TPCallWaitingButton.h"
-
-#import "TPLCDBar.h"
-#import "TPWell.h"

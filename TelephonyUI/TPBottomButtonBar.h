@@ -7,17 +7,11 @@
 
 #import "TelephonyUI-Structs.h"
 #import "TPBottomBar.h"
-#import <Availability2.h>
 
 @class TPPushButton;
-@class UIImageView, UIView;
 
 @interface TPBottomButtonBar : TPBottomBar {
 	id _delegate;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-	UIImageView* _backgroundView;
-	UIView* _well;
-#endif
 	TPPushButton* _button;
 }
 -(id)initForIncomingCallWaitingWithFrame:(CGRect)frame;
@@ -26,10 +20,5 @@
 -(id)initForVoiceControlWithFrame:(CGRect)frame;
 -(void)setButton:(id)button;
 -(id)button;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-// inherited: +(id)_backgroundImage;
--(void)addBackgroundAndWellIfNecessary;
--(id)initForEndVideoWithFrame:(CGRect)frame;
-#endif
 @end
 
