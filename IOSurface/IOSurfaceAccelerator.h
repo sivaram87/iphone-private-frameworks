@@ -2,7 +2,6 @@
 #define _IOSURFACE_ACCELERATOR_H 1
 
 #include <IOSurface/IOSurfaceAPI.h>
-#include <IOKit/IOReturn.h>
 
 typedef IOReturn IOSurfaceAcceleratorReturn;
 
