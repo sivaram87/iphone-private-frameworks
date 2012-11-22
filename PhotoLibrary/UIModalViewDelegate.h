@@ -5,4 +5,16 @@
  * Source: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
  */
 
-#import <UIKit/UIModalViewDelegate.h>
+#import "NSObject.h"
+
+
+@protocol UIModalViewDelegate <NSObject>
+@optional
+-(void)modalView:(id)view clickedButtonAtIndex:(int)index;
+-(void)modalViewCancel:(id)cancel;
+-(void)willPresentModalView:(id)view;
+-(void)didPresentModalView:(id)view;
+-(void)modalView:(id)view willDismissWithButtonIndex:(int)buttonIndex;
+-(void)modalView:(id)view didDismissWithButtonIndex:(int)buttonIndex;
+@end
+

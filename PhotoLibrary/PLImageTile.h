@@ -5,10 +5,6 @@
  * Source: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
  */
 
-#import <Availability2.h>
-
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_3_2
-
 #import "PLImageTile.h"
 #import "PhotoLibrary-Structs.h"
 #import <UIKit/UITile.h>
@@ -58,4 +54,3 @@
 -(int)_imageOrientation;
 @end
 
-#endif

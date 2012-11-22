@@ -5,4 +5,18 @@
  * Source: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
  */
 
-#import <UIKit/UITextView.h>
+#import "PhotoLibrary-Structs.h"
+#import "NSObject.h"
+
+
+@protocol UITextViewDelegate <NSObject>
+@optional
+-(BOOL)textViewShouldBeginEditing:(id)textView;
+-(BOOL)textViewShouldEndEditing:(id)textView;
+-(void)textViewDidBeginEditing:(id)textView;
+-(void)textViewDidEndEditing:(id)textView;
+-(BOOL)textView:(id)view shouldChangeTextInRange:(NSRange)range replacementText:(id)text;
+-(void)textViewDidChange:(id)textView;
+-(void)textViewDidChangeSelection:(id)textView;
+@end
+

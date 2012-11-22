@@ -23,7 +23,6 @@
 
 #import "NSLocking.h"
 #import <Foundation/NSObject.h>
-#import <Foundation/NSLock.h>
 
 @class NSString;
 

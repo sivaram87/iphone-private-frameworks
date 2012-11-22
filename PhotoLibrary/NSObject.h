@@ -5,4 +5,28 @@
  * Source: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
  */
 
-#import <Foundation/NSObject.h>
+#import "PhotoLibrary-Structs.h"
+
+
+@protocol NSObject
+-(BOOL)isEqual:(id)equal;
+-(unsigned)hash;
+-(Class)superclass;
+-(Class)class;
+-(id)self;
+-(NSZone*)zone;
+-(id)performSelector:(SEL)selector;
+-(id)performSelector:(SEL)selector withObject:(id)object;
+-(id)performSelector:(SEL)selector withObject:(id)object withObject:(id)object3;
+-(BOOL)isProxy;
+-(BOOL)isKindOfClass:(Class)aClass;
+-(BOOL)isMemberOfClass:(Class)aClass;
+-(BOOL)conformsToProtocol:(id)protocol;
+-(BOOL)respondsToSelector:(SEL)selector;
+-(id)retain;
+-(oneway void)release;
+-(id)autorelease;
+-(unsigned)retainCount;
+-(id)description;
+@end
+

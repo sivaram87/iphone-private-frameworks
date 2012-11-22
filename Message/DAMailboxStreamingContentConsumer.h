@@ -6,4 +6,10 @@
  */
 
 
-#import <DataAccess/DAMailboxStreamingContentConsumer.h>
+
+@protocol DAMailboxStreamingContentConsumer
+-(BOOL)shouldBeginStreamingForMailMessage:(id)mailMessage format:(int)format;
+-(void)consumeData:(char*)data length:(int)length format:(int)format mailMessage:(id)message;
+-(void)didEndStreamingForMailMessage:(id)mailMessage;
+@end
+

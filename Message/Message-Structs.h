@@ -8,8 +8,6 @@
 #include <CoreFoundation/CoreFoundation.h>
 #include <pthread.h>
 #import <MIME/MIME.h>
-#import <SystemConfiguration/SystemConfiguration.h>
-#import <sqlite3.h>
 
 typedef struct {
 	int _field1;
@@ -117,9 +115,15 @@ typedef struct {
 	unsigned _field12;
 } XXStruct_sY4QuD;
 
+typedef struct sqlite3 sqlite3;
+
 typedef struct NtlmGenerator NtlmGenerator;
 
 typedef struct _lockdown_connection lockdown_connection;
+
+typedef struct sqlite3_stmt sqlite3_stmt;
+
+typedef struct __SCDynamicStore* SCDynamicStoreRef;
 
 typedef struct {
 	unsigned colorHasBeenEvaluated : 1;
