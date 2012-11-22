@@ -21,7 +21,7 @@
 	int _lastUsedDirectoryNumber;
 	NSMutableDictionary* _userInfo;
 	BOOL _userInfoDidChange;
-	struct flock* _dcimDirectoryLock;
+	flock* _dcimDirectoryLock;
 	int _dcimDirectoryLockDescriptor;
 }
 -(BOOL)isValidImageExtension:(id)extension;
