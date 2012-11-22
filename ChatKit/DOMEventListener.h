@@ -4,4 +4,9 @@
  */
 
 #import "NSObject.h"
-#import <WebKit/DOMEventListener.h>
+
+
+@protocol DOMEventListener <NSObject>
+-(void)handleEvent:(id)event;
+@end
+

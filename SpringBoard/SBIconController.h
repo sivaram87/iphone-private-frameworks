@@ -9,7 +9,7 @@
 #import "UIScrollViewDelegate.h"
 #import <Foundation/NSObject.h>
 
-@class UITouch, SBIconListPageControl, SBIcon, SBIconScrollView, SBIconList, UIView, NSTimer, SBSearchView, SBIconModel, TPLCDTextView, SBIconContentView;
+@class UITouch, SBIconListPageControl, SBIcon, SBIconScrollView, SBIconList, UIView, NSTimer, SBSearchView, SBIconModel, TPLCDTextView;
 
 @interface SBIconController : NSObject <UIScrollViewDelegate, SBIconListPageControlDelegate> {
 	SBIconModel* _iconModel;
@@ -47,10 +47,10 @@
 	float _searchViewAlpha;
 	UITouch* _lastTouch;
 }
-+(SBIconController*)sharedInstance;
++(id)sharedInstance;
 // inherited: -(id)init;
 // inherited: -(void)dealloc;
--(SBIconContentView*)contentView;
+-(id)contentView;
 -(void)setPageControlVisible:(BOOL)visible;
 -(void)showInfoAlertIfNeeded;
 -(void)showCarrierDebuggingAlertIfNeeded;
@@ -59,10 +59,10 @@
 -(int)lowestVisibleIconListIndexAndColumnIndex:(int*)index;
 -(void)updateCurrentIconListIndex;
 -(void)resetCurrentVisibleIconListImageVisibilityAndJitterState;
--(SBIconList*)currentIconList;
+-(id)currentIconList;
 -(BOOL)isShowingSearch;
 -(int)currentIconListIndex;
--(void)scrollToIconListContainingIcon:(SBIcon*)iconListContainingIcon animate:(BOOL)animate;
+-(void)scrollToIconListContainingIcon:(id)iconListContainingIcon animate:(BOOL)animate;
 -(void)scrollToIconListAtIndex:(int)index animate:(BOOL)animate;
 -(void)updateContentSize;
 -(void)noteNumberOfIconListsChanged;

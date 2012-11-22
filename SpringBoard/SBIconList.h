@@ -23,8 +23,8 @@
 -(float)horizontalIconInset;
 -(int)maxIconRows;
 -(int)maxIconColumns;
--(NSArray*)icons;
--(SBIcon*)iconAtX:(int)x Y:(int)y;
+-(id)icons;
+-(id)iconAtX:(int)x Y:(int)y;
 -(BOOL)firstFreeSlotX:(int*)x Y:(int*)y;
 -(BOOL)isEmpty;
 -(BOOL)needsCompacting;
@@ -67,6 +67,6 @@
 -(id)bouncedIcon;
 -(void)resetWithRepresentation:(id)representation;
 -(id)initWithRepresentation:(id)representation;
--(NSArray*)representation;
+-(id)representation;
 @end
 

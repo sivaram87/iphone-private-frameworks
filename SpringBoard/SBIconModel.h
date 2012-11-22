@@ -7,7 +7,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSMutableDictionary, SBButtonBar, NSString, NSSet, NSMutableArray, NSDictionary, SBIcon, SBIconList;
+@class NSMutableDictionary, SBButtonBar, NSString, NSSet, NSMutableArray, NSDictionary;
 
 @interface SBIconModel : NSObject {
 	NSString* _iconCachePath;
@@ -19,14 +19,14 @@
 	NSSet* _hiddenIconTags;
 	NSSet* _visibleIconTags;
 }
-+(SBIconModel*)sharedInstance;
++(id)sharedInstance;
 +(int)maxIconListCount;
 +(void)purgeIconCaches;
 // inherited: -(id)init;
 // inherited: -(void)dealloc;
 -(void)localeChanged;
 -(void)setVisibilityOfIconsWithVisibleTags:(id)visibleTags hiddenTags:(id)tags;
--(BOOL)isIconVisible:(SBIcon*)icon;
+-(BOOL)isIconVisible:(id)visible;
 -(void)replaceDownloadingDisplayIdentifiers:(id)identifiers withDisplayIdentifiers:(id)displayIdentifiers;
 -(void)_completedUninstall:(id)uninstall;
 -(id)addDownloadingIconForDownload:(id)download;
@@ -44,19 +44,19 @@
 -(void)_purgeOrphanedImages;
 -(void)addIconForApplication:(id)application;
 -(void)loadAllIcons;
--(NSArray*)visibleIconIdentifiers;
--(NSArray*)allIcons;
+-(id)visibleIconIdentifiers;
+-(id)allIcons;
 -(id)iconForDisplayIdentifier:(id)displayIdentifier;
 -(id)iconForDisplayIdentifier:(id)displayIdentifier andSpotlightCategory:(id)category;
--(NSDictionary*)iconState;	// {iconLists=..., buttonBar=...}
+-(id)iconState;
 -(id)_iconState;
 -(void)noteIconStateChangedExternally;
--(SBButtonBar*)buttonBar;
--(NSArray*)iconLists;
+-(id)buttonBar;
+-(id)iconLists;
 -(int)indexOfIconList:(id)iconList;
 -(void)createIconLists;
 -(void)uninstallBookmarkIcon:(id)icon;
--(SBIconList*)iconListContainingIcon:(SBIcon*)icon;
+-(id)iconListContainingIcon:(id)icon;
 -(id)iconListContainingIconWithDisplayIdentifier:(id)displayIdentifier;
 -(id)addEmptyIconList;
 -(void)removeEmptyIconList:(id)list;
@@ -74,7 +74,7 @@
 -(void)_replaceAppIconWithDownloadingIcon:(id)downloadingIcon sourceList:(id)list;
 -(void)relayout;
 -(void)uninstallApplicationIcon:(id)icon;
--(NSArray*)exportState;
+-(id)exportState;
 -(id)_arrayForIconList:(id)iconList;
 -(id)_dictionaryForIcon:(id)icon;
 -(BOOL)importState:(id)state;

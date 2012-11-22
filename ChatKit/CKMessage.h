@@ -50,8 +50,8 @@
 -(BOOL)isOutgoing;
 -(id)previewText;
 -(id)attachmentText:(BOOL)text;
--(NSString*)subject;
--(NSString*)text;
+-(id)subject;
+-(id)text;
 -(unsigned long)height;
 -(void)_storeUIFlags:(unsigned long)flags;
 -(void)_loadUIFlags;
@@ -72,9 +72,9 @@
 -(BOOL)completelyFailedSend;
 -(void)reloadFailedSendCount;
 -(float)percentComplete;
--(CKEntity*)sender;
--(NSString*)address;
--(NSData*)alertImageData;
+-(id)sender;
+-(id)address;
+-(id)alertImageData;
 -(BOOL)isFirstDisplayablePart:(id)part;
 -(BOOL)containsDisplayableMessageParts;
 -(BOOL)isOnlyDisplayableMessagePart:(id)part;

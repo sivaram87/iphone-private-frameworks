@@ -11,17 +11,17 @@
 @interface CKSimpleBalloonView : CKBalloonView {
 	NSString* _text;
 }
-+(CGFloat)minimumBubbleHeight;
-+(CGFloat)heightForText:(NSString*)text width:(CGFloat)width includeBuffers:(BOOL)buffers;
++(float)minimumBubbleHeight;
++(float)heightForText:(id)text width:(float)width includeBuffers:(BOOL)buffers;
 +(BOOL)showsSubject;
--(NSString*)text;
--(NSString*)subject;
--(void)setText:(NSString*)text;
+-(id)text;
+-(id)subject;
+-(void)setText:(id)text;
 -(void)setMessagePart:(id)part;
 -(void)setComposition:(id)composition;
 -(void)prepareForReuse;
 -(void)dealloc;
--(void)setBackgroundColor:(UIColor*)color;
+-(void)setBackgroundColor:(id)color;
 -(CGRect)subjectBounds;
 -(CGRect)textBounds;
 -(void)drawRect:(CGRect)rect;

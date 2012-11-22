@@ -8,7 +8,7 @@
 #import "Message-Structs.h"
 #import "MailMessageStore.h"
 
-@class MessageCriterion, MessageLibrary, NSMutableSet, MailboxUid, NSMapTable;
+@class MessageCriterion, MessageLibrary, NSMutableSet;
 
 @interface LibraryStore : MailMessageStore {
 	MessageLibrary* _library;
@@ -22,11 +22,11 @@
 	unsigned _serverUnreadCount;
 }
 // inherited: +(void)initialize;
-+(NSMapTable*)_storeCacheMapTable;
++(id)_storeCacheMapTable;
 +(unsigned)defaultLoadOptions;
 +(id)storeWithCriterion:(id)criterion;
 +(id)storeWithMailbox:(id)mailbox;
-+(LibraryStore*)sharedInstance;
++(id)sharedInstance;
 // inherited: +(BOOL)createEmptyStoreForPath:(id)path;
 // inherited: +(BOOL)storeAtPathIsWritable:(id)pathIsWritable;
 -(id)initWithCriterion:(id)criterion mailbox:(id)mailbox readOnly:(BOOL)only;
@@ -34,8 +34,8 @@
 // inherited: -(id)initWithMailboxUid:(id)mailboxUid readOnly:(BOOL)only;
 -(id)initWithMailbox:(id)mailbox;
 // inherited: -(void)setLibrary:(id)library;
--(MessageLibrary*)library;
--(MailboxUid*)mailbox;
+-(id)library;
+-(id)mailbox;
 -(void)_updateMailboxUnreadCount;
 -(void)addCountsForMessages:(id)messages shouldUpdateUnreadCount:(BOOL)count;
 -(BOOL)shouldCancel;
@@ -67,7 +67,7 @@
 -(void)messagesCompacted:(id)compacted;
 -(void)handleMessagesCompacted:(id)compacted;
 // inherited: -(void)dealloc;
-// inherited: -(LibraryMessage*)messageForMessageID:(NSString*)messageID;
+// inherited: -(id)messageForMessageID:(id)messageID;
 -(id)_fetchHeaderDataForMessage:(id)message downloadIfNecessary:(BOOL)necessary;
 // inherited: -(id)_fetchBodyDataForMessage:(id)message andHeaderDataIfReadilyAvailable:(id*)available downloadIfNecessary:(BOOL)necessary partial:(BOOL*)partial;
 -(id)_fetchFullBodyDataForMessage:(id)message andHeaderDataIfReadilyAvailable:(id*)available downloadIfNecessary:(BOOL)necessary;

@@ -8,7 +8,7 @@
 #import <UIKit/UIView.h>
 #import "SpringBoard-Structs.h"
 
-@class SBIconImageView, SBIconBadge, NSString, NSTimer, UIImageView, UIPushButton, SBIconLabel, CAAnimation;
+@class SBIconImageView, SBIconBadge, NSString, NSTimer, UIImageView, UIPushButton, SBIconLabel;
 
 @interface SBIcon : UIView {
 	NSString* _filenameSafeDisplayIdentifier;
@@ -38,8 +38,8 @@
 +(CGSize)defaultIconSize;
 +(void)enqueueReusableIconImageView:(id)view;
 +(id)dequeueReusableIconImageView;
-+(CAAnimation*)_jitterPositionAnimation;
-+(CAAnimation*)_jitterTransformAnimation;
++(id)_jitterPositionAnimation;
++(id)_jitterTransformAnimation;
 -(id)initWithDefaultSize;
 // inherited: -(void)dealloc;
 -(void)localeChanged;
@@ -48,18 +48,18 @@
 -(BOOL)isHidden;
 -(void)setIsRevealable:(BOOL)revealable;
 -(BOOL)isRevealable;
--(NSString*)displayName;
+-(id)displayName;
 -(int)localizedCompareDisplayNames:(id)names;
--(NSString*)displayIdentifier;
--(NSString*)filenameSafeDisplayIndentifier;
--(NSDate*)modificationDate:(BOOL)date;
+-(id)displayIdentifier;
+-(id)filenameSafeDisplayIndentifier;
+-(id)modificationDate:(BOOL)date;
 -(id)tags;
 -(BOOL)launchEnabled;
 -(void)setDisplayedIcon:(id)icon;
--(UIImage*)icon;
--(UIImage*)smallIcon;
+-(id)icon;
+-(id)smallIcon;
 -(id)_createIconImageDataForSmallIcon:(BOOL)smallIcon;
--(UIImage*)reflectedIcon:(BOOL)icon;
+-(id)reflectedIcon:(BOOL)icon;
 -(BOOL)isShowingImages;
 -(void)setShowsImages:(BOOL)images;
 -(void)updateLabelOrigin;
@@ -68,7 +68,7 @@
 -(void)setDrawsLabel:(BOOL)label;
 -(void)updateLabelKerningAndEllipsing;
 -(int)badgeValue;
--(void)setBadge:(NSString*)badge;
+-(void)setBadge:(id)badge;
 -(id)_automationID;
 -(BOOL)pointMostlyInside:(CGPoint)inside withEvent:(id)event;
 -(id)darkenedIcon:(id)icon alpha:(float)alpha;
@@ -93,7 +93,7 @@
 // inherited: -(void)touchesBegan:(id)began withEvent:(id)event;
 // inherited: -(void)touchesMoved:(id)moved withEvent:(id)event;
 // inherited: -(void)touchesEnded:(id)ended withEvent:(id)event;
--(NSString*)representation;
+-(id)representation;
 -(void)launch;
 -(BOOL)pointInside:(CGPoint)inside withEvent:(id)event;
 -(BOOL)allowsCloseBox;

@@ -79,7 +79,7 @@
 -(unsigned)unreadCount;
 -(BOOL)hasMessageForAccount:(id)account;
 -(unsigned)indexOfMessage:(id)message;
--(NSArray*)copyOfAllMessages;	// array of LibraryMessages
+-(id)copyOfAllMessages;
 -(id)copyOfMessagesInRange:(NSRange)range;
 -(id)mutableCopyOfAllMessages;
 -(id)copyOfAllMessagesWithOptions:(unsigned)options;

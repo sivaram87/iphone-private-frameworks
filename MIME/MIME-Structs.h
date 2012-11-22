@@ -5,4 +5,16 @@
  * Source: /System/Library/PrivateFrameworks/MIME.framework/MIME
  */
 
-#import <QuartzCore/QuartzCore-Structs.h>
+typedef struct {
+	int _field1;
+	int _field2;
+} XXStruct_K5nmsA;
+
+typedef struct {
+	unsigned long _field1;
+	id* _field2;
+	unsigned long* _field3;
+	unsigned long _field4[5];
+} XXStruct_kFm5bA;
+
+

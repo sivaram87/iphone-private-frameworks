@@ -10,8 +10,6 @@
 #import <UIKit/UIKit.h>
 #import <GraphicsServices/GraphicsServices.h>
 #import <AppSupport/AppSupport.h>
-#import <ChatKit/ChatKit.h>
-#import <QuartzCore/QuartzCore2.h>
 
 typedef struct __CTCall* CTCallRef;
 
@@ -26,6 +24,11 @@ typedef struct SBApplicationTimes {
 } SBApplicationTimes;
 
 typedef struct _MISProfile* MISProfileRef;
+
+typedef struct {
+	int _field1;
+	int _field2;
+} XXStruct_K5nmsA;
 
 typedef struct __CTServerConnection* CTServerConnectionRef;
 
@@ -55,6 +58,13 @@ typedef struct CalEventExpirationMonitor CalEventExpirationMonitor;
 typedef struct CalAlarmEngine CalAlarmEngine;
 
 typedef struct CalDatabase CalDatabase;
+
+typedef struct {
+	unsigned long _field1;
+	id* _field2;
+	unsigned long* _field3;
+	unsigned long _field4[5];
+} XXStruct_kFm5bA;
 
 typedef struct {
 	double _field1;

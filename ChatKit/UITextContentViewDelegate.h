@@ -5,5 +5,19 @@
 
 #import "ChatKit-Structs.h"
 #import "NSObject.h"
-#import <UIKit/UITextContentView.h>
+
+
+@protocol UITextContentViewDelegate <NSObject>
+@optional
+-(BOOL)textContentViewShouldBeginEditing:(id)textContentView;
+-(BOOL)textContentViewShouldEndEditing:(id)textContentView;
+-(void)textContentViewDidBeginEditing:(id)textContentView;
+-(void)textContentViewDidEndEditing:(id)textContentView;
+-(BOOL)textContentView:(id)view shouldChangeTextInRange:(NSRange)range replacementText:(id)text;
+-(void)textContentViewDidChange:(id)textContentView;
+-(void)textContentViewDidChangeSelection:(id)textContentView;
+-(BOOL)textContentView:(id)view shouldScrollForPendingContentSize:(CGSize)pendingContentSize;
+-(BOOL)textContentView:(id)view shouldChangeSizeForContentSize:(CGSize)contentSize;
+-(void)textContentView:(id)view didChangeSize:(CGSize)size;
+@end
 
