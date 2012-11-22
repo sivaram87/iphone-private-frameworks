@@ -6,25 +6,22 @@
 #import "UIKit-Structs.h"
 #import <Foundation/NSObject.h>
 
-typedef struct UIColorComponents {
-	CGFloat r, g, b, a;
-} UIColorComponents;
 
 @interface UIImageBuffer : NSObject {
 	unsigned m_width;
 	unsigned m_height;
 	unsigned m_pixelCount;
 	unsigned m_componentCount;
-	UIColorComponents* m_pixels;
+	UIEdgeInsets* m_pixels;
 }
 @property(readonly, assign, nonatomic) unsigned width;
 @property(readonly, assign, nonatomic) unsigned height;
 -(id)initWithWidth:(unsigned)width height:(unsigned)height;
 -(void)dealloc;
--(UIColorComponents*)pixels;
--(void)getPixel:(UIColorComponents*)pixel atPoint:(CGPoint)point;
--(void)setPixel:(UIColorComponents*)pixel atPoint:(CGPoint)point;
--(void)fillWithPixel:(UIColorComponents*)pixel;
+-(UIEdgeInsets*)pixels;
+-(void)getPixel:(UIEdgeInsets*)pixel atPoint:(CGPoint)point;
+-(void)setPixel:(UIEdgeInsets*)pixel atPoint:(CGPoint)point;
+-(void)fillWithPixel:(UIEdgeInsets*)pixel;
 -(CGImageRef)createImage;
 @end
 

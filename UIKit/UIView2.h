@@ -9,7 +9,7 @@
 #import <UIKit/UIResponder.h>
 #import "UITextEffectsOrdering.h"
 
-@class NSMutableArray, CALayer, NSArray, UIScrollView, UIGestureRecognizer;
+@class NSMutableArray, CALayer, NSArray, UIScrollView;
 
 @interface UIView ()
 +(Class)layerClass;
@@ -63,8 +63,8 @@
 @property(assign, nonatomic) BOOL capturesDescendantTouches;
 @property(assign, nonatomic) BOOL gesturesEnabled;
 @property(copy, nonatomic) NSArray* gestureRecognizers;
--(void)addGestureRecognizer:(UIGestureRecognizer*)recognizer;
--(void)removeGestureRecognizer:(UIGestureRecognizer*)recognizer;
+-(void)addGestureRecognizer:(id)recognizer;
+-(void)removeGestureRecognizer:(id)recognizer;
 -(void)removeAllGestureRecognizers;
 @end
 

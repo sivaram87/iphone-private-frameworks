@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <GraphicsServices/GraphicsServices.h>
-#import <AppSupport/AppSupport.h>
 
 typedef struct __CTCall* CTCallRef;
 
@@ -24,6 +23,10 @@ typedef struct SBApplicationTimes {
 } SBApplicationTimes;
 
 typedef struct _MISProfile* MISProfileRef;
+
+typedef struct {
+	unsigned _field1[8];
+} XXStruct_kUSYWB;
 
 typedef struct {
 	int _field1;
