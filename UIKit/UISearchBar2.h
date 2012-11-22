@@ -6,7 +6,6 @@
 #import "UIKit-Structs.h"
 #import <UIKit/UISearchBar.h>
 #import <UIKit/UIView.h>
-#import <Availability.h>
 
 @class UILabel, UIButton, NSArray, UIImageView, NSString, UITextField, UIColor;
 @protocol UISearchBarDelegate;
@@ -20,8 +19,6 @@
 -(void)setController:(id)controller;
 -(id)controller;
 -(id)searchField;
--(void)willMoveToSuperview:(id)superview __OSX_AVAILABLE_STARTING(__MAC_NA, __IPHONE_3_1);
--(void)movedToSuperview:(id)superview __OSX_AVAILABLE_STARTING(__MAC_NA, __IPHONE_3_1);
 -(void)_hideShowAnimationDidFinish;
 -(void)setShowsCancelButton:(BOOL)button animated:(BOOL)animated;
 -(void)_setShowsCancelButton:(BOOL)button;

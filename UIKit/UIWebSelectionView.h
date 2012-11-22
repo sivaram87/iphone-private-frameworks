@@ -5,7 +5,6 @@
 
 #import "UIKit-Structs.h"
 #import <UIKit/UIView.h>
-#import <Availability.h>
 
 @class UIWebSelectionGraph, UIWebSelectionNode, UIWebTextRangeView, UIWebSelectionOutline, UIWebSelectionHandle, UIWebSelection, UIWebDocumentView;
 
@@ -45,9 +44,6 @@
 			CGRect originalSelectionRect;
 		} flipData;
 	} _rangedSelectionData;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_1
-	BOOL _creatingSelection;
-#endif
 	int _nestedLayoutCalls;
 }
 @property(retain, nonatomic) UIWebSelectionNode* selectionNode;

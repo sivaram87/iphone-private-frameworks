@@ -5,7 +5,6 @@
 
 #import "UIKit-Structs.h"
 #import <UIKit/UIView.h>
-#import <Availability.h>
 
 @class NSArray, NSDictionary, UIMovieScrubberTrackOverlayView, NSMutableDictionary;
 @protocol UIMovieScrubberTrackViewDelegate, UIMovieScrubberTrackViewDataSource;
@@ -26,9 +25,6 @@
 	CGSize _thumbnailSize;
 	float _zoomOriginXDelta;
 	float _zoomWidthDelta;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_1
-	float _unclampedZoomWidthDelta;
-#endif
 	float _zoomAnimationDuration;
 	double _duration;
 	double _value;
@@ -40,10 +36,6 @@
 		unsigned delegateDidCollapse : 1;
 		unsigned delegateWillRequestThumbs : 1;
 		unsigned delegateDidRequestThumbs : 1;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_1
-		unsigned delegateZoomAnimationDuration : 1;
-		unsigned delegateZoomAnimationDelay : 1;
-#endif
 		unsigned needsReload : 1;
 		unsigned editing : 1;
 		unsigned editingHandle;
@@ -68,9 +60,7 @@
 -(void)reloadData;
 -(void)layoutSubviews;
 -(void)setZoomAnimationDuration:(float)duration;
--(float)zoomAnimationDuration __OSX_AVAILABLE_STARTING(__MAC_NA, __IPHONE_3_1);
 -(BOOL)zoomAtPoint:(CGPoint)point;
--(void)_setOverlayViewIsZoomed:(BOOL)zoomed minValue:(float)value maxValue:(float)value3 __OSX_AVAILABLE_STARTING(__MAC_NA, __IPHONE_3_1);
 -(void)unzoom;
 -(void)_zoomAnimation:(id)animation didFinish:(id)finish context:(void*)context;
 -(void)_unzoomAnimation:(id)animation didFinish:(id)finish context:(void*)context;

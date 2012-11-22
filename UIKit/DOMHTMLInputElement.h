@@ -4,7 +4,6 @@
  */
 
 #import <WebKit/DOMHTMLInputElement.h>
-#import <Availability.h>
 
 
 @interface DOMHTMLInputElement (UIWebFormAssistantExtras)
@@ -16,7 +15,6 @@
 -(id)text;
 -(BOOL)isSecure;
 -(BOOL)isTextControl;
--(int)keyboardType __OSX_AVAILABLE_STARTING(__MAC_NA, __IPHONE_3_1);
 @end
 
 @interface DOMHTMLInputElement (UIWebInteraction)

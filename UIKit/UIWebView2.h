@@ -7,7 +7,6 @@
 #import <UIKit/UIWebView.h>
 #import "UIKit-Structs.h"
 #import <UIKit/UIView.h>
-#import <Availability.h>
 
 @class NSURLRequest, UIWebViewInternal;
 @protocol UIWebViewDelegate;
@@ -73,8 +72,6 @@
 -(void)_setDrawsCheckeredPattern:(BOOL)pattern;
 -(void)_setWebSelectionEnabled:(BOOL)enabled;
 -(void)_setDrawInWebThread:(BOOL)webThread;
--(void)_setAllowsPopUps:(BOOL)ups __OSX_AVAILABLE_STARTING(__MAC_NA, __IPHONE_3_1);
--(BOOL)_allowsPopUps __OSX_AVAILABLE_STARTING(__MAC_NA, __IPHONE_3_1);
 @end
 
 @interface UIWebView (UIKitAccessibilityInterfaceBuilderSupport)

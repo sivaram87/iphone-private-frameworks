@@ -4,7 +4,6 @@
  */
 
 #import "UIGestureRecognizer.h"
-#import <Availability.h>
 
 @class UIDelayedAction;
 
@@ -12,9 +11,7 @@
 	UIDelayedAction* _touchDelay;
 }
 -(void)clearTimer;
--(void)sendTouchesShouldBegin __OSX_AVAILABLE_BUT_DEPRECATED(__MAC_NA, __MAC_NA, __IPHONE_3_0, __IPHONE_3_1);
--(void)sendTouchesShouldBeginForTouches:(id)sendTouches withEvent:(id)event __OSX_AVAILABLE_STARTING(__MAC_NA, __IPHONE_3_1);
--(void)sendTouchesShouldBeginForDelayedTouches:(id)sendTouches __OSX_AVAILABLE_STARTING(__MAC_NA, __IPHONE_3_1);
+-(void)sendTouchesShouldBegin;
 -(void)enoughTimeElapsed:(id)elapsed;
 -(void)dealloc;
 -(void)reset;

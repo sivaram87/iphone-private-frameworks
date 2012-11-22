@@ -3,9 +3,6 @@
  * class-dump-z is Copyright (C) 2009 by KennyTM~, licensed under GPLv3.
  */
 
-#import <Availability.h>
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_3_1
-
 #import <Foundation/NSObject.h>
 
 @class NSString, NSURL, NSURLConnection;
@@ -29,4 +26,3 @@
 -(void)uploadWithCallbackTarget:(id)callbackTarget selector:(SEL)selector;
 @end
 
-#endif

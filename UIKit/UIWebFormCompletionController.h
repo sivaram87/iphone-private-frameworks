@@ -5,7 +5,6 @@
 
 #import "UIKit-Structs.h"
 #import <Foundation/NSObject.h>
-#import <Availability.h>
 
 @class NSString, DOMElement, DOMHTMLInputElement, NSMutableDictionary;
 
@@ -17,12 +16,12 @@
 	NSMutableDictionary* _items;
 }
 +(BOOL)previousDataCompletionEnabled;
-+(void)setPreviousDataCompletionEnabled:(BOOL)enabled __OSX_AVAILABLE_BUT_DEPRECATED(__MAC_NA, __MAC_NA, __IPHONE_3_0, __IPHONE_3_1);
++(void)setPreviousDataCompletionEnabled:(BOOL)enabled;
 +(BOOL)shouldSaveFormData;
 +(BOOL)addressBookCompletionEnabled;
-+(void)setAddressBookCompletionEnabled:(BOOL)enabled __OSX_AVAILABLE_BUT_DEPRECATED(__MAC_NA, __MAC_NA, __IPHONE_3_0, __IPHONE_3_1);
++(void)setAddressBookCompletionEnabled:(BOOL)enabled;
 +(BOOL)passwordCompletionEnabled;
-+(void)setPasswordCompletionEnabled:(BOOL)enabled __OSX_AVAILABLE_BUT_DEPRECATED(__MAC_NA, __MAC_NA, __IPHONE_3_0, __IPHONE_3_1);
++(void)setPasswordCompletionEnabled:(BOOL)enabled;
 +(BOOL)shouldSaveUsernamesAndPasswords;
 +(id)_cryptData:(id)data encode:(BOOL)encode;
 +(void)_loadCompletionDB;

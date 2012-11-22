@@ -6,7 +6,6 @@
 #import "UIActionSheet.h"
 #import "UIKit-Structs.h"
 #import <UIKit/UIView.h>
-#import <Availability.h>
 
 @class NSString, UILabel, NSMutableArray, UIWindow, UIToolbar;
 @protocol UIActionSheetDelegate;
@@ -128,7 +127,6 @@
 -(float)_maxHeight;
 -(float)_buttonHeight;
 -(void)layout;
--(int)numberOfLinesInTitle __OSX_AVAILABLE_STARTING(__MAC_NA, __IPHONE_3_1);
 -(int)tableView:(id)view numberOfRowsInSection:(int)section;
 -(id)tableView:(id)view cellForRowAtIndexPath:(id)indexPath;
 -(void)tableView:(id)view didSelectRowAtIndexPath:(id)indexPath;

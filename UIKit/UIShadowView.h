@@ -11,11 +11,11 @@
 @interface UIShadowView : UIView {
 	UIImage* _image;
 }
-+(UIImage*)topShadowImage;
-+(UIImage*)bottomShadowImage;
++(id)topShadowImage;
++(id)bottomShadowImage;
 -(id)initWithFrame:(CGRect)frame;
 -(BOOL)ignoresMouseEvents;
--(void)setShadowImage:(UIImage*)image forEdge:(int)edge inside:(BOOL)inside;
+-(void)setShadowImage:(id)image forEdge:(int)edge inside:(BOOL)inside;
 -(void)dealloc;
 -(void)drawRect:(CGRect)rect;
 @end

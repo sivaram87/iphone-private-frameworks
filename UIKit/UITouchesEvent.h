@@ -5,17 +5,11 @@
 
 #import "UIKit-Structs.h"
 #import <UIKit/UIEvent.h>
-#import <Availability.h>
 
 @class NSMutableSet;
 
-__attribute__((visibility("hidden")))
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_1
-@interface UITouchesEvent : UIInternalEvent {
-#else
 @interface UITouchesEvent : UIEvent {
 	GSEventRef _gsEvent;
-#endif
 	NSMutableSet* _touches;
 	CFDictionaryRef _keyedTouches;
 }
@@ -23,7 +17,7 @@ __attribute__((visibility("hidden")))
 -(id)_init;
 -(id)_initWithEvent:(GSEventRef)event touches:(id)touches;
 -(id)_initWithTouches:(id)touches keyedTouches:(CFDictionaryRef)touches2;
--(void)_setGSEvent:(GSEventRef)event __OSX_AVAILABLE_BUT_DEPRECATED(__MAC_NA, __MAC_NA, __IPHONE_3_0, __IPHONE_3_1);
+-(void)_setGSEvent:(GSEventRef)event;
 -(void)dealloc;
 -(id)allTouches;
 -(id)_allTouches;
@@ -48,7 +42,7 @@ __attribute__((visibility("hidden")))
 -(id)_firstTouchForView:(id)view;
 -(void)_moveTouchesFromView:(id)view toView:(id)view2;
 -(id)_cloneEvent;
--(GSEventRef)_gsEvent __OSX_AVAILABLE_BUT_DEPRECATED(__MAC_NA, __MAC_NA, __IPHONE_3_0, __IPHONE_3_1);
+-(GSEventRef)_gsEvent;
 -(id)description;
 @end
 
