@@ -5,10 +5,6 @@
  * Source: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
  */
 
-#import <Availability2.h>
-
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_3_2
-
 #import "PhotoLibrary-Structs.h"
 #import <UIKit/UITile.h>
 
@@ -20,6 +16,4 @@
 -(void)movedToSuperview:(id)superview;
 -(void)setFrame:(CGRect)frame;
 @end
-
-#endif
 

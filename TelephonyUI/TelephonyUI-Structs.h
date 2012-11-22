@@ -6,6 +6,11 @@
  */
 
 #import <GraphicsServices/GraphicsServices.h>
-#import <PhotoLibrary/PhotoLibrary.h>
+
+typedef struct {
+	CGRect _field1;
+	CGRect _field2;
+	CGRect _field3;
+} XXStruct_SIyEID;
 
 

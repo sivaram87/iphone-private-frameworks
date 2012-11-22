@@ -18,7 +18,7 @@
 #
 
 from os import listdir, fdopen, system, remove, close
-from os.path import isdir, exists, join
+from os.path import isdir
 from subprocess import Popen, PIPE, STDOUT
 import sys
 
@@ -32,9 +32,7 @@ if len(sys.argv) > 1:
 		content = []
 		for dirname in listdir('.'):
 			if dirname[0].isupper() and isdir(dirname):
-				mainname = join(dirname, dirname + '.h')
-				if exists(mainname):
-					content.append('#import <{0}>'.format(mainname))
+				content.append('#import <{0}/{0}.h>'.format(dirname))
 			elif dirname[-2:] == '.h':
 				content.append('#import <{0}>'.format(dirname))
 		content_string = "\n".join(content).encode()

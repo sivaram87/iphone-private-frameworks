@@ -7,4 +7,12 @@
 
 #import "NSObject.h"
 
-#import <CoreLocation/CLLocationManagerDelegate.h>
+
+@protocol CLLocationManagerDelegate <NSObject>
+@optional
+-(void)locationManager:(id)manager didUpdateToLocation:(id)location fromLocation:(id)location3;
+-(void)locationManager:(id)manager didUpdateHeading:(id)heading;
+-(BOOL)locationManagerShouldDisplayHeadingCalibration:(id)locationManager;
+-(void)locationManager:(id)manager didFailWithError:(id)error;
+@end
+

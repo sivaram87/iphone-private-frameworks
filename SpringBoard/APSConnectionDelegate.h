@@ -5,5 +5,11 @@
  * Source: (null)
  */
 
-#import <Message/APSConnectionDelegate.h>
+#import "NSObject.h"
+
+
+@protocol APSConnectionDelegate <NSObject>
+-(void)connection:(id)connection didReceivePublicToken:(id)token;
+-(void)connection:(id)connection didReceiveMessageForTopic:(id)topic userInfo:(id)info;
+@end
 

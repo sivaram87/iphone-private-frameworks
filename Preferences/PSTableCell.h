@@ -6,7 +6,7 @@
  */
 
 #import "Preferences-Structs.h"
-#import "PSSpecifier.h"
+#import "PSTableCell.h"
 #import <UIKit/UIPreferencesTableCell.h>
 
 
