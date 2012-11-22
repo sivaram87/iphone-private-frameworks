@@ -8,7 +8,6 @@
 #import <Availability2.h>
 
 @class UIView, NSString;
-@protocol CAMediaTiming;
 
 @interface UIViewAnimationState : NSObject {
 	UIViewAnimationState* _nextState;
@@ -44,7 +43,7 @@
 +(void)pushViewAnimationState:(id)state context:(void*)context;
 +(void)popAnimationState;
 -(void)dealloc;
--(void)setAnimationAttributes:(id<CAMediaTiming>)attributes;	// save the attributes of the animation state *into* the argument.
+-(void)setAnimationAttributes:(id)attributes;
 -(void)animationDidStart:(id)animation;
 -(void)sendDelegateAnimationDidStop:(id)sendDelegateAnimation finished:(BOOL)finished;
 -(void)animationDidStop:(id)animation finished:(BOOL)finished;

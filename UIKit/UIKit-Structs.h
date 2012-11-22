@@ -275,7 +275,7 @@ typedef struct {
 	int startContentOrientation;
 	CGRect startContentBounds;
 	CGRect endContentBounds;
-} XXStruct_Nw9VXC, XXStruct_t5OlHA;
+} XXStruct_Nw9VXC;
 
 typedef struct {
 	UIImage* background;
@@ -284,7 +284,8 @@ typedef struct {
 	UIColor* textColor;
 	UIColor* shadowColor;
 	CGSize shadowOffset;
-} XXStruct_KYn_rD, XXStruct_V3NSMA;
+} XXStruct_KYn_rD;
+typedef XXStruct_KYn_rD XXStruct_V3NSMA;
 
 typedef struct {
 	UIFont* _field1;

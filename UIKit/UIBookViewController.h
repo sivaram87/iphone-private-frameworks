@@ -12,17 +12,8 @@
 #import <UIKit/UIViewController.h>
 #import <UIKit/UIGeometry.h>
 
-@class UIView, UIBookViewController;
-
-@protocol UIBookViewControllerDelegate
-@required
-// Returns the next page given the previous page (in the same side as the previous page).
--(UIViewController*)bookViewController:(UIBookViewController*)bookViewController nextPage:(UIViewController*)oldPage;
--(UIViewController*)bookViewController:(UIBookViewController*)bookViewController previousPage:(UIViewController*)oldPage;
-@optional
--(void)bookViewController:(UIBookViewController*)bookViewController willBeginTurningPages:(int)pages animated:(BOOL)animated;
--(void)bookViewController:(UIBookViewController*)bookViewController didEndTurningPages:(int)pages animated:(BOOL)animated;
-@end
+@protocol UIBookViewControllerDelegate;
+@class UIView;
 
 @interface UIBookViewController : UIViewController {
 @private
@@ -39,8 +30,8 @@
 	double _turnDuration;
 }
 @property(assign, nonatomic) id<UIBookViewControllerDelegate> delegate;
-@property(retain, nonatomic) UIViewController* oddPage;	// = right page
-@property(retain, nonatomic) UIViewController* evenPage;	// = left page
+@property(retain, nonatomic) UIViewController* oddPage;
+@property(retain, nonatomic) UIViewController* evenPage;
 @property(assign, nonatomic) float turnMargin;
 @property(assign, nonatomic) UIEdgeInsets contentInset;
 @property(assign, nonatomic) double turnDuration;
