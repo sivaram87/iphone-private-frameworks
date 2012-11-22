@@ -35,8 +35,6 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "GSWindow.h"
 #include <mach/message.h>
-#include <CoreFoundation/CoreFoundation.h>
-#include <CoreGraphics/CoreGraphics.h>
 
 #if __cplusplus
 extern "C" {
@@ -263,7 +261,7 @@ extern "C" {
 	void GSEventRunModal(Boolean disallow_restart);
 	void GSEventRun();
 	
-	void GSEventInitialize(Boolean registerPurple);
+	void GSEventInitialize();
 	
 #pragma mark -
 #pragma mark Sending events
