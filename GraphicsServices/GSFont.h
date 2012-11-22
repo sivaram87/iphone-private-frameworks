@@ -34,7 +34,6 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define GSFONT_H
 
 #include <CoreGraphics/CoreGraphics.h>
-#include <CoreFoundation/CoreFoundation.h>
 
 #if __cplusplus
 extern "C" {

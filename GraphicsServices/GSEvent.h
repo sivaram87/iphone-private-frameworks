@@ -34,7 +34,6 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define GSEVENT_H
 
 #include "GSWindow.h"
-#include <mach/message.h>
 
 #if __cplusplus
 extern "C" {
@@ -89,24 +88,15 @@ extern "C" {
 	} GSDeviceOrientationInfo;
 	
 	typedef struct __GSKeyInfo {
-		UniChar keycode, characterIgnoringModifier, character;	// 0x3C, 0x3E, 0x40
-		unsigned short characterSet;	// 0x42
-		Boolean isKeyRepeating;	// 0x44
+		UniChar keycode, characterIgnoringModifier, character;
+		unsigned short characterSet;
+		unsigned char isKeyRepeating;
 	} GSKeyInfo;
 	
 	typedef struct __GSAccessoryKeyStateInfo {
-		unsigned short a;
+		short a;
 		int b;
 	} GSAccessoryKeyStateInfo;
-	
-	typedef struct __GSAppPreferencesChangedInfo {
-		size_t length;
-		char appName[0];
-	} GSAppPreferencesChangedInfo;
-	
-	typedef struct __GSResetIdleDurationInfo {
-		int a, b;
-	} GSResetIdleDurationInfo;
 	
 	typedef enum __GSEventType {
 		kGSEventLeftMouseDown    = 1,
@@ -114,15 +104,13 @@ extern "C" {
 		kGSEventMouseMoved       = 5,
 		kGSEventLeftMouseDragged = 6,
 		
-		kGSEventKeyDown = 10,
-		kGSEventKeyUp = 11,
 		kGSEventHardwareKeyDown = 13,
+		kGSEventKeyDown = kGSEventHardwareKeyDown,
 		kGSEventScrollWheel = 22,
 		kGSEventAccelerate = 23,
 		kGSEventProximityStateChanged = 24,
 		kGSEventDeviceOrientationChanged = 50,
-		kGSAppPreferencesChanged = 60,
-		kGSEventUserDefaultsDidChange = 60,	// backward compatibility.
+		kGSEventUserDefaultsDidChange = 60,
 		
 		kGSEventResetIdleTimer = 100,
 		kGSEventResetIdleDuration = 101,
@@ -197,7 +185,7 @@ extern "C" {
 		CGPoint location; 	// 0x10
 		CGPoint windowLocation;	// 0x18
 		int windowContextId;	// 0x20
-		uint64_t timestamp;	// 0x24, from mach_absolute_time
+		CFTimeInterval time;	// 0x24
 		GSWindowRef window;	// 0x2C
 		GSEventFlags flags;	// 0x30
 		unsigned senderPID;	// 0x34
@@ -205,82 +193,14 @@ extern "C" {
 	} GSEventRecord;
 	
 #pragma mark -
-#pragma mark General info
 	
+	/// Get the CoreFoundation type identifier of GSEvent.
 	CFTypeID GSEventGetTypeID();
 	
-	GSEventRef GSEventCopy(GSEventRef event);
-	GSEventRef GSEventCreateWithEventRecord(const GSEventRecord* record);
-	GSEventRef GSEventCreateWithTypeAndLocation(GSEventType type, CGPoint location);
-	GSEventRef GSEventCreateWithPlist(CFDictionaryRef dictionary);
-	
-	const GSEventRecord* GSEventRecordGetRecordDataWithPlist(CFDictionaryRef plist);
-	void GSEventRecordGetRecordWithPlist(GSEventRef event_to_fill, CFDictionaryRef plist);
-	CFDictionaryRef GSEventCreatePlistRepresentation(GSEventRef event);	
-	
-	Boolean GSEventShouldRouteToFrontMost(GSEventRef event);
-	void GSEventRemoveShouldRouteToFrontMost(GSEventRef event);
-
-	GSEventType GSEventGetType(GSEventRef event);
-	GSEventSubType GSEventGetSubType(GSEventRef event);
-	int GSEventGetWindowContextId(GSEventRef event);
-	CGPoint GSEventGetLocationInWindow(GSEventRef event);
-	CGPoint GSEventGetOuterMostPathPosition(GSEventRef event);
-	CGPoint GSEventGetInnerMostPathPosition(GSEventRef event);
-	CFAbsoluteTime GSEventGetTimestamp(GSEventRef event);
-	GSWindowRef GSEventGetWindow(GSEventRef event);
-	unsigned GSEventGetSenderPID(GSEventRef event);
-
-	const GSEventRecord* _GSEventGetGSEventRecord(GSEventRef event);
-	
-	void GSEventSetLocationInWindow(GSEventRef event, CGPoint location);
-	void GSEventSetType(GSEventRef event, GSEventType type);
-	
-	// GSHiccupsEnabled
-#pragma mark -
-#pragma mark Event queue processing
-	
-	Boolean GSEventQueueContainsMouseEvent();
-	mach_port_t GSGetPurpleApplicationPort();
-	
-	Boolean GSGetTimeEventHandling();
-	void GSSetTimeEventHandling(Boolean enable);
-	void GSSaveEventHandlingTimes();
-	
-	CFAbsoluteTime _GSEventConvertFromMachTime(uint64_t machTime);
-	uint64_t GSCurrentEventTimestamp();
-	
-	mach_port_name_t GSRegisterPurpleNamedPort(const char* service_name);
-	mach_port_name_t GSCopyPurpleNamedPort(const char* service_name);
-	mach_port_name_t GSGetPurpleSystemEventPort();	
-	
-	void GSEventPopRunLoopMode(CFStringRef mode);	///< Stop the event run loop, and remove "mode" from the run loop mode stack if it is at the top.
-	void GSEventPushRunLoopMode(CFStringRef mode);	///< Stop the event run loop and push "mode" to the top of run loop mode stack.
-	
-	void GSEventStopModal();
-	void GSEventRunModal(Boolean disallow_restart);
-	void GSEventRun();
-	
-	void GSEventInitialize();
-	
-#pragma mark -
-#pragma mark Sending events
-	void GSSendEvent(const GSEventRecord* record, mach_port_t port);
-	void GSSendSimpleEvent(GSEventType type, mach_port_t port);	///< This calls GSSendEvent with an empty record.
-	void GSSendSystemEvent(const GSEventRecord* record);	///< Send event to the PurpleSystemEventPort.	
-	
-#pragma mark -
-#pragma mark Callback functions
-	
-	/// Only 1 function can be registered.
-	
-	/// Register a callback function that will be called when PurpleEventCallback() is called.
-	void GSEventRegisterEventCallBack(void(*callback)(GSEventRef event));
-	void GSEventRegisterFindWindowCallBack(int(*callback)(CGPoint position));
+	void GSEventRegisterEventCallBack(void*);
+	void GSEventRegisterFindWindowCallBack(void*);
 	void GSEventRegisterTransformToWindowCoordsCallBack(void*);
-		
-#pragma mark -
-#pragma mark Touch events
+	
 	GSHandInfo GSEventGetHandInfo(GSEventRef event);
 	GSPathInfo GSEventGetPathInfoAtIndex(GSEventRef event, CFIndex index);
 	void GSEventSetPathInfoAtIndex(GSEventRef event, GSPathInfo pathInfo, CFIndex index);
@@ -291,83 +211,52 @@ extern "C" {
 	void GSEventDisableHandEventCoalescing(Boolean disableHandCoalescing);
 	
 	Boolean GSEventIsHandEvent(GSEventRef event);
-	Boolean GSEventIsChordingHandEvent(GSEventRef event);
+	Boolean GSEventShouldRouteToFrontMost(GSEventRef event);
+	void GSEventRemoveShouldRouteToFrontMost(GSEventRef event);
 	
-	// Always returns 1.
-	int GSEventGetClickCount(GSEventRef event);
+	GSEventType GSEventGetType(GSEventRef event);
+	GSEventSubType GSEventGetSubType(GSEventRef event);
+	int GSEventGetWindowContextId(GSEventRef event);
+	CGPoint GSEventGetLocationInWindow(GSEventRef event);
+	CGPoint GSEventGetOuterMostPathPosition(GSEventRef event);
+	CGPoint GSEventGetInnerMostPathPosition(GSEventRef event);
 	
-#pragma mark -
-#pragma mark Scroll wheel and touch events
+	void GSEventSetLocationInWindow(GSEventRef event, CGPoint location);
+	void GSEventSetType(GSEventRef event, GSEventType type);
+	
 	CGFloat GSEventGetDeltaX(GSEventRef event);
 	CGFloat GSEventGetDeltaY(GSEventRef event);
 	void GSEventSetDeltaX(GSEventRef event, CGFloat deltaX);
 	void GSEventSetDeltaY(GSEventRef event, CGFloat deltaY);
 	
-#pragma mark -
-#pragma mark Keyboard events
-	unsigned short GSEventGetCharacterSet(GSEventRef event);
-	GSEventFlags GSEventGetModifierFlags(GSEventRef event);
-	Boolean GSEventIsKeyRepeating(GSEventRef event);
-	UniChar GSEventGetKeyCode(GSEventRef event);
-	
-	GSEventRef _GSCreateSyntheticKeyEvent(UniChar keycode, Boolean isKeyUp, Boolean isKeyRepeating);
-	Boolean GSEventIsKeyCharacterEventType(GSEventRef event, UniChar expected_keycode);
-	Boolean GSEventIsTabKeyEvent(GSEventRef event);
-	
-	CFStringRef GSEventCopyCharactersIgnoringModifiers(GSEventRef event);
-	CFStringRef GSEventCopyCharacters(GSEventRef event);
-	
-	void _GSPostSyntheticKeyEvent(CFStringRef keys, Boolean isKeyUp, Boolean isKeyRepeating);
-	
-#pragma mark -
-#pragma mark Accelerometer events
 	CGFloat GSEventAccelerometerAxisX(GSEventRef event);
 	CGFloat GSEventAccelerometerAxisY(GSEventRef event);
 	CGFloat GSEventAccelerometerAxisZ(GSEventRef event);
 	
-#pragma mark -
-#pragma mark Out-of-line data
-	void GSEventRequestOutOfLineData(mach_port_t port, void* unknown);
-	mach_msg_return_t GSEventSendOutOfLineData(mach_port_t port, ...);	
-	
-#pragma mark -
-#pragma mark Hardware manipulation events
+	// Returns a UIDeviceOrientation. 
 	int GSEventDeviceOrientation(GSEventRef event);
-	void GSEventRotateSimulator(int x);	// -1 = home button on the left, 0 = portrait, 1 = home button on the right.
+	int GSEventGetClickCount(GSEventRef event);
 	
-	void GSEventRestoreSensitivity();
-	void GSEventSetSensitivity(int sensitivity);	// or float?
+	CFTimeInterval GSEventGetTimestamp(GSEventRef event);
+	GSWindowRef GSEventGetWindow(GSEventRef event);
 	
-	void GSEventLockDevice();	// 1014.
-
-	void GSEventResetIdleTimer();
-	void GSEventResetIdleDuration(int a, int b);
+	unsigned short GSEventGetCharacterSet(GSEventRef event);
+	GSEventFlags GSEventGetModifierFlags(GSEventRef event);
+	Boolean GSEventIsKeyRepeating(GSEventRef event);
 	
-	void GSEventSetBacklightLevel(float level);
-	void GSEventSetBacklightFactor(int factor);
+	unsigned GSEventGetSenderPID(GSEventRef event);
+	const GSEventRecord* _GSEventGetGSEventRecord(GSEventRef event);
 	
-#pragma mark -
-#pragma mark Application events
-	Boolean GSEventIsForceQuitEvent(GSEventRef event);
-	void GSEventQuitTopApplication();	// 2010.
+	// _GSEventConvertFromMachTime
 	
-	void GSSendAppPreferencesChanged(CFStringRef service_name, CFStringRef app_id);
-	
-	void GSSendApplicationSuspendedSettingsUpdatedEvent(int x, int y, CFStringRef suspendedDefaultPNG, CFStringRef roleID);
-	void GSSendApplicationSuspendedEvent(int x, int y, CFStringRef suspendedDefaultPNG, CFStringRef roleID);
-	void GSEventFinishedActivating(Boolean b);
-	
-	void GSEventSendApplicationOpenURL(CFURLRef url, mach_port_t port);
-	
-#pragma mark -
-#pragma mark Accessory key state events
 	GSAccessoryKeyStateInfo GSEventGetAccessoryKeyStateInfo(GSEventRef event);
-	GSEventRef GSEventCreateAccessoryKeyStateEvent(GSEventRef event, GSEventFlags flags);
-	void GSEventAccessoryKeyStateChanged(unsigned short a, int b, GSEventFlags flags);
-	void GSEventAccessoryAvailabilityChanged(unsigned short a, int b);
-		
-#pragma mark -
-#pragma mark Audio events
+	
+	const GSEventRecord* GSEventRecordGetRecordDataWithPlist(CFDictionaryRef plist);
+	
+	void GSEventSendOutOfLineData(void*);
+	
+	
+	
 	SInt32 _GSEventGetSoundActionID(CFStringRef path);
 	void _GSEventPlayAlertOrSystemSoundAtPath(CFStringRef path, Boolean loop, Boolean alert);
 	
@@ -377,8 +266,10 @@ extern "C" {
 	void GSEventLoopSoundAtPath(CFStringRef path);// Equivalent to _GSEventPlayAlertOrSystemSoundAtPath(path, 1, 0)
 	void GSEventPlaySoundAtPath(CFStringRef path);// Equivalent to _GSEventPlayAlertOrSystemSoundAtPath(path, 0, 0)
 	
-	void GSEventVibrateForDuration(float secs);
-	void GSEventStopVibrator();	///< Equivalent to GSEventVibrateForDuration(0)
+	GSEventRef GSEventCopy(GSEventRef event);
+	GSEventRef GSEventCreateAccessoryKeyStateEvent(GSEventRef event, GSEventFlags flags);
+	GSEventRef GSEventCreateWithEventRecord(const GSEventRecord* record);
+	GSEventRef GSEventCreateWithTypeAndLocation(GSEventType type, CGPoint location);
 	
 #if __cplusplus
 }

@@ -30,21 +30,18 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  
 */
 
-#ifndef GSBASE_H
-#define GSBASE_H
+mach_port_t GSGetPurpleApplicationPort();
+Boolean GSGetTimeEventHandling();
+void GSSetTimeEventHandling(Boolean doHandleEvents);
 
-#include <CoreFoundation/CoreFoundation.h>
+CGFloat GSStatusBarHeight();
+CGFloat GSDefaultStatusBarHeight();	// = 20
+CGFloat GSSetStatusBarHeight(CGFloat newHeight);
 
-#if __cplusplus
-extern "C" {
-#endif
-
-	void GSLog(CFStringRef format, ...);
-	void GSInitialize();
-	
-#if __cplusplus
-}
-#endif
-
-#endif
-
+void GSSetMainScreenInfo(CGFloat screenWidth, CGFloat screenHeight, CGFloat screenScale, int screenOrientation);
+CGRect GSFullScreenApplicationContentRect();
+CGAffineTransform GSMainScreenPositionTransform();
+CGAffineTransform GSMainScreenWindowTransform();
+int GSMainScreenOrientation();
+CGFloat GSMainScreenScaleFactor();
+CGSize GSMainScreenSize();
