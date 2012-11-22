@@ -5,6 +5,10 @@
  * Source: (null)
  */
 
-#import "NSObject.h"
+#import <UIKit/UIPreferencesTableCell.h>
 
+
+@interface UIAlertTableCell : UIPreferencesTableCell {
+}
+@end
 
