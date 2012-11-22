@@ -7,25 +7,16 @@
 
 #import "SpringBoard-Structs.h"
 #import <UIKit/UIView.h>
-#import <Availability2.h>
 
-@class UIImageView, UIImage, UILabel;
+@class UIImageView, UIImage;
 
 @interface SBBatteryChargingView : UIView {
 	int _type;
 	UIImageView* _topBatteryView;
 	UIImageView* _bottomBatteryView;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_3_2
 	UIImageView* _reflectionView;
-#endif
 	UIImage* _lastBatteryImage;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-	UILabel* _percentLabel;
-#endif
 	int _lastBatteryIndex;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-	int _lastBatteryPercentage;
-#endif
 	unsigned _showReflection : 1;
 }
 +(CGSize)defaultSizeForType:(int)type;

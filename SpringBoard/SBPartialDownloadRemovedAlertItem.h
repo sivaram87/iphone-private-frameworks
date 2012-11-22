@@ -5,11 +5,8 @@
  * Source: (null)
  */
 
-#import <Availability2.h>
-
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_3_2
-
 #import "SBAlertItem.h"
+
 
 @interface SBPartialDownloadRemovedAlertItem : SBAlertItem {
 	BOOL _allRemoved;
@@ -20,4 +17,3 @@
 // inherited: -(BOOL)shouldShowInLockScreen;
 @end
 
-#endif

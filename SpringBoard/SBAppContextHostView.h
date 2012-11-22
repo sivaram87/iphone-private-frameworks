@@ -7,7 +7,6 @@
 
 #import "SpringBoard-Structs.h"
 #import <UIKit/UIView.h>
-#import <Availability2.h>
 
 @class NSMutableArray;
 
@@ -25,9 +24,5 @@
 -(void)didOrderOutContextWithId:(unsigned)anId;
 -(void*)createIOSurfaceForFrame:(CGRect)frame;
 -(void*)createIOSurfaceForFrame:(CGRect)frame includeAdditionalContext:(unsigned)context;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
--(void)_setLayerFrameAndTransform:(id)transform;
--(void*)createIOSurfaceForFrame:(CGRect)frame includeAdditionalContext:(unsigned)context outTransform:(CGAffineTransform*)transform;
-#endif
 @end
 

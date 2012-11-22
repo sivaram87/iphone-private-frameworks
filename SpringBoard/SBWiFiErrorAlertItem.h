@@ -6,7 +6,6 @@
  */
 
 #import "SBAlertItem.h"
-#import <Availability2.h>
 
 @class NSString;
 
@@ -17,11 +16,7 @@
 }
 -(id)initWithNetworkName:(id)networkName error:(int)error;
 // inherited: -(void)dealloc;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-@property(assign, nonatomic) id delegate;
-#else
 -(void)setDelegate:(id)delegate;
-#endif
 // inherited: -(void)dismiss;
 -(void)alertSheet:(id)sheet buttonClicked:(int)clicked;
 // inherited: -(void)configure:(BOOL)configure requirePasscodeForActions:(BOOL)actions;

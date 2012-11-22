@@ -7,7 +7,6 @@
 
 #import <Foundation/NSObject.h>
 #import "SBTVOutController.h"
-#import <Availability2.h>
 
 
 @interface SBTVOutController : NSObject {
@@ -18,18 +17,12 @@
 // inherited: -(id)init;
 // inherited: -(void)dealloc;
 -(void)setIntialTVModeIfNeeded;
--(void)updateSettings;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-@property(readonly, assign, nonatomic) BOOL isTVSignalTypeDigital;
--(BOOL)updateLayerKitSettings;
-#else
 -(void)updateLayerKitSettings;
-#endif
+-(void)updateSettings;
 @end
 
-@interface SBTVOutController (Private)	// the actual category name is (private), but C++ rejects this.
+@interface SBTVOutController (private)
 -(void)_handleIapServerConnectionDied;
--(void)_tetherSettingChanged:(id)changed __OSX_AVAILABLE_STARTING(__MAC_NA, __IPHONE_3_2);
 -(void)startListeningForSettingsChanges;
 -(void)stopListeningForSettingsChanges;
 @end

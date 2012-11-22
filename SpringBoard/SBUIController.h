@@ -6,28 +6,16 @@
  */
 
 #import "SpringBoard-Structs.h"
-#import <UIKit/UIWindow2.h>
 #import <Foundation/NSObject.h>
-#import <Availability2.h>
 
-@class UIView, SBZoomView, UIWindow, SBWallpaperView;
+@class UIView, SBZoomView, UIWindow;
 
-@interface SBUIController : NSObject 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-<UIWindowDelegate>
-#endif
-{
+@interface SBUIController : NSObject {
 	UIWindow* _window;
 	UIView* _iconsView;
 	UIView* _buttonBarContainerView;
 	UIView* _contentView;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-	SBWallpaperView* _wallpaperView;
-#endif
 	SBZoomView* _zoomLayer;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-	UIView* _scatterFadeView;
-#endif
 	id _volumeHandler;
 	BOOL _restoringIconList;
 	BOOL _lastVolumeDownToControl;
@@ -42,9 +30,6 @@
 	BOOL _isHeadsetCharging;
 	BOOL _isHeadsetDocked;
 	BOOL _ignoreHeadsetEvents;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-	int _orientation;
-#endif
 }
 +(int)displayedLevelForLockScreenBatteryLevel:(int)lockScreenBatteryLevel;
 +(id)sharedInstance;
@@ -69,6 +54,7 @@
 -(void)showZoomLayerWithIOSurfaceSnapshotOfApp:(id)app includeStatusWindow:(id)window;
 -(void)scatterIconListAndBar:(BOOL)animated;
 -(void)insertAndOrderIconListsForReordering:(BOOL)reordering;
+-(void)restoreIconList:(BOOL)animated;
 -(void)animateApplicationActivation:(id)activation animateDefaultImage:(BOOL)image scatterIcons:(BOOL)icons;
 -(void)animateApplicationActivationDidStop:(id)animateApplicationActivation finished:(id)finished context:(void*)context;
 -(void)tearDownIconListAndBar;
@@ -77,6 +63,7 @@
 -(void)animateApplicationSuspendFlip:(id)flip;
 -(void)applicationSuspendFlipDidStop:(id)applicationSuspendFlip;
 -(void)stopRestoringIconList;
+-(void)showButtonBar:(BOOL)bar animate:(BOOL)animate action:(SEL)action delegate:(id)delegate;
 -(void)finishedFadingInButtonBar;
 -(BOOL)clickedMenuButton;
 -(void)wakeUp:(id)up;
@@ -97,33 +84,5 @@
 -(unsigned char)headsetBatteryCapacity;
 -(void)handleAccessoryAvailabilityChange:(GSEventRef)change removal:(BOOL)removal;
 -(void)handleAccessoryEvent:(GSEventRef)event;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
--(void)lock:(BOOL)lock disableLockSound:(BOOL)sound;
--(void)setShouldRasterizeAndFreezeContentView:(BOOL)rasterizeAndFreezeContentView;
--(void)_updateWallpaperImage;
--(id)wallpaperView;
--(BOOL)isDisplayingWallpaper;
--(void)setWallpaperAlpha:(float)alpha;
--(void)_setRoundedCornersOnZoomLayerIfNecessaryForApp:(id)app withCornersFrame:(CGRect)cornersFrame;
--(void)fadeIconsForScatter:(BOOL)scatter duration:(double)duration startTime:(double)time;
--(void)restoreIconListAnimated:(BOOL)animated;
--(void)restoreIconListAnimated:(BOOL)animated animateWallpaper:(BOOL)wallpaper;
--(void)showButtonBar:(BOOL)bar animate:(BOOL)animate animateWallpaper:(BOOL)wallpaper action:(SEL)action delegate:(id)delegate startTime:(double)time duration:(double)duration;
--(BOOL)_handleButtonEventToSuspendDisplays:(BOOL)suspendDisplays displayWasSuspendedOut:(BOOL*)anOut;
--(int)displayBatteryCapacityAsPercentage;
-// in a protocol: -(BOOL)shouldWindowUseOnePartInterfaceRotationAnimation:(id)animation;
-// in a protocol: -(BOOL)window:(id)window shouldAutorotateToInterfaceOrientation:(int)interfaceOrientation;
-// in a protocol: -(id)rotatingContentViewForWindow:(id)window;
-// in a protocol: -(id)rotatingFooterViewForWindow:(id)window;
--(float)_buttonBarContainerViewHeightForOrientation:(int)orientation;
--(void)_resetSubviewGeometryIfNecessary;
-// in a protocol: -(void)getRotationContentSettings:(XXStruct_t5OlHA*)settings forWindow:(id)window;
-// in a protocol: -(void)window:(id)window willRotateToInterfaceOrientation:(int)interfaceOrientation duration:(double)duration;
-// in a protocol: -(void)window:(id)window willAnimateRotationToInterfaceOrientation:(int)interfaceOrientation duration:(double)duration;
-// in a protocol: -(void)window:(id)window didRotateFromInterfaceOrientation:(int)interfaceOrientation;
-#else
--(void)restoreIconList:(BOOL)animated;
--(void)showButtonBar:(BOOL)bar animate:(BOOL)animate action:(SEL)action delegate:(id)delegate;
-#endif
 @end
 

@@ -7,7 +7,6 @@
 
 #import "SpringBoard-Structs.h"
 #import <UIKit/UIView.h>
-#import <Availability2.h>
 
 @class UIButton, UILabel, UIPushButton, UISlider, MPAudioDeviceController;
 
@@ -21,9 +20,6 @@
 	UIButton* _routeButton;
 	UILabel* _routeLabel;
 	MPAudioDeviceController* _audioDeviceController;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-	int _orientation;
-#endif
 }
 // inherited: -(id)initWithFrame:(CGRect)frame;
 // inherited: -(void)dealloc;
@@ -48,9 +44,5 @@
 -(void)_systemVolumeChanged:(id)changed;
 -(void)audioDeviceControllerAudioRoutesChanged:(id)changed;
 -(void)audioDeviceControllerMediaServerDied:(id)died;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-@property(assign, nonatomic) int orientation;
--(void)_changeTrackButtonEndSeek:(id)seek;
-#endif
 @end
 

@@ -6,9 +6,6 @@
  */
 
 #import <UIKit/UIView.h>
-#import <Availability2.h>
-
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_3_2
 
 @class UIImageView;
 
@@ -22,4 +19,3 @@
 -(void)setReflectionVisible:(BOOL)visible withDuration:(float)duration;
 @end
 
-#endif

@@ -7,32 +7,24 @@
 
 #import "SpringBoard-Structs.h"
 #import <Foundation/NSObject.h>
-#import <Availability2.h>
 
 @class NSMutableArray, SBCompassRecalibrationView, UIWindow;
 
 @interface SBCompassRecalibrationController : NSObject {
 	NSMutableArray* _assertionPorts;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_3_2
 	UIWindow* _recalibrationWindow;
 	SBCompassRecalibrationView* _recalibrationView;
-#endif
 }
 +(id)sharedInstance;
--(void)showHUD;
--(void)removeHUD;
--(void)clientRequestedCompassHUD:(unsigned)hud;
--(void)_clientInvalidated:(CFMachPortRef)invalidated;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-// inherited: -(void)dealloc;
--(BOOL)isCompassCalibrationHUDVisible;
-#else
 +(BOOL)isCompassCalibrationWindowVisible;
 // inherited: -(id)init;
+-(void)showHUD;
 -(void)_createUI;
 -(void)reorientRecalibrationHUDIfNeeded:(BOOL)needed;
+-(void)removeHUD;
 -(void)_animationDidStop:(id)_animation finished:(id)finished context:(void*)context;
 -(void)_tearDown;
-#endif
+-(void)clientRequestedCompassHUD:(unsigned)hud;
+-(void)_clientInvalidated:(CFMachPortRef)invalidated;
 @end
 

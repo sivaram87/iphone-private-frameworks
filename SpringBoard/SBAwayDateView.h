@@ -7,7 +7,6 @@
 
 #import "SpringBoard-Structs.h"
 #import <UIKit/UIView.h>
-#import <Availability2.h>
 
 @class NSString, NSTimer, SBAwayMediaControlsView, TPLCDTextView, UILabel;
 @protocol SBAwayDateViewDelegate;
@@ -24,9 +23,6 @@
 	UILabel* _nowPlayingAlbumLabel;
 	SBAwayMediaControlsView* _controlsView;
 	id<SBAwayDateViewDelegate> _delegate;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-	int _orientation;
-#endif
 	unsigned _isPlaying : 1;
 }
 @property(assign, nonatomic) id<SBAwayDateViewDelegate> delegate;
@@ -48,9 +44,5 @@
 -(id)controlsView;
 -(void)setIsShowingControls:(BOOL)controls;
 -(BOOL)isShowingControls;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-@property(assign, nonatomic) int orientation;
--(void)resizeNowPlayingLabels;
-#endif
 @end
 

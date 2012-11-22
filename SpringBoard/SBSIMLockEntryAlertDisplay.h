@@ -18,7 +18,7 @@
 // inherited: -(void)dealloc;
 -(id)localizedStringWithKey:(id)key;
 -(id)_pinAttemptsRemainingLabel;
--(BOOL)alphanumericKeyboard;
+// inherited: -(BOOL)alphanumericKeyboard;
 -(void)setupUnlockAttemptState;
 -(id)failureTitle;
 -(id)failureLabel;

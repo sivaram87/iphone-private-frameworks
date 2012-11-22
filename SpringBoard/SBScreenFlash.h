@@ -6,7 +6,6 @@
  */
 
 #import <Foundation/NSObject.h>
-#import <Availability2.h>
 
 @class UIWindow, UIView;
 
@@ -16,18 +15,12 @@
 	BOOL _windowVisible;
 }
 +(id)sharedInstance;
+-(void)_createUI;
 -(void)_tearDown;
 -(void)_orderWindowOut:(id)anOut;
+-(void)_orderWindowFront:(id)front;
 -(void)stopFlash;
 -(void)flash;
 -(void)animationDidStop:(id)animation finished:(id)finished context:(void*)context;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
--(void)_createUIWithColor:(id)color;
--(void)_orderWindowFront:(id)front withColor:(id)color;
--(void)flashColor:(id)color;
-#else
--(void)_createUI;
--(void)_orderWindowFront:(id)front;
-#endif
 @end
 

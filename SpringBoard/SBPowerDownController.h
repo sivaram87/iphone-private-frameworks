@@ -7,7 +7,6 @@
 
 #import "SpringBoard-Structs.h"
 #import "SBAlert.h"
-#import <Availability2.h>
 
 @class SBPowerDownView;
 
@@ -23,11 +22,7 @@
 -(BOOL)isOrderedFront;
 -(void)orderFront;
 -(void)orderOut;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
--(id)powerDownViewWithSize:(CGSize)size;
-#else
 -(id)powerDownView;
-#endif
 // inherited: -(void)activate;
 -(void)_restoreIconListIfNecessary;
 // inherited: -(void)deactivate;

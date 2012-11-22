@@ -8,7 +8,6 @@
 #import "SBPlatformController.h"
 #import "SpringBoard-Structs.h"
 #import <Foundation/NSObject.h>
-#import <Availability2.h>
 
 @class NSMutableDictionary, NSString;
 
@@ -34,14 +33,9 @@
 -(id)localizedPlatformName;
 -(BOOL)isInternalInstall;
 -(void)noteITunesStoreCapabilityChanged;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
--(void)_addIconListIdentifiers:(id)identifiers toSet:(id)set;
--(id)defaultDisplayIdentifiers;
--(BOOL)isCarrierInstall;
-#endif
 @end
 
-@interface SBPlatformController (Private)	// the actual category name is (private), but C++ rejects this.
+@interface SBPlatformController (private)
 -(id)currentConfigurationName;
 -(void)postCurrentConfiguration;
 -(void)_mergeDictionary:(id)dictionary intoDictionary:(id)dictionary2;

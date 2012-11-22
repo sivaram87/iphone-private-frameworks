@@ -51,7 +51,7 @@
 -(BOOL)_wasTriggeredByMenu;
 // inherited: -(void)updateDesktopImage:(id)image;
 // inherited: -(void)dealloc;
--(BOOL)alphanumericKeyboard;
+// inherited: -(BOOL)alphanumericKeyboard;
 -(id)_localizedStringForKey:(id)key;
 -(void)setTitleText:(id)text;
 -(void)setStatusText:(id)text;
