@@ -5,11 +5,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class UIAlertView, UITwoSidedAlertController;
-@protocol UITwoSidedAlertDelegate
-@optional
--(void)twoSidedAlertControllerDidDismiss:(UITwoSidedAlertController*)ctrler;
-@end
+@class UIAlertView;
 
 @interface UITwoSidedAlertController : NSObject {
 	UIAlertView* _front;
@@ -17,19 +13,15 @@
 	UIAlertView* _currentAlert;
 	id _delegate;
 }
--(void)setDelegate:(id<UITwoSidedAlertDelegate>)delegate;
--(UIAlertView*)frontAlert;
--(UIAlertView*)backAlert;
+-(void)dealloc;
+-(void)setDelegate:(id)delegate;
+-(id)frontAlert;
+-(id)backAlert;
+-(id)createFrontAlert;
+-(id)createBackAlert;
 -(void)show;
 -(void)dismiss;
 -(void)flip;
-@end
-
-
-@interface UITwoSidedAlertController ()
--(void)dealloc;
--(id)createFrontAlert;
--(id)createBackAlert;
 -(void)animationDidStop:(id)animation finished:(BOOL)finished;
 -(void)frontAlertClickedButtonAtIndex:(int)index;
 -(void)backAlertClickedButtonAtIndex:(int)index;
