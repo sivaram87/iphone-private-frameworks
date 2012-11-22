@@ -5,5 +5,18 @@
  * Source: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-#import <MusicLibrary/MusicLibrary-Structs.h>
+typedef struct MLArtworkFormatSpec {
+	unsigned formatID;
+	unsigned width;
+	unsigned height;
+	unsigned rowBytes;
+	int pixelOrder;
+	int pixelFormat;
+} MLArtworkFormatSpec;
+
+typedef struct MLArtworkInstanceInfo {
+	MLArtworkFormatSpec formatSpec;
+	CGRect imageSubRect;
+} MLArtworkInstanceInfo;
+
 
