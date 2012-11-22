@@ -9,11 +9,9 @@
 #import <UIKit/UITableViewCell.h>
 #import <Availability2.h>
 
-@class UILabel, UIButton, NSTimer, UIImageView, NSString, UITextField, UIColor, _UITableViewCellOldEditingData, UITableViewCellLayoutManager;
+@class UILabel, UIButton, NSTimer, UIImageView, NSString, UITextField, UIColor, _UITableViewCellOldEditingData;
 
 @interface UITableViewCell ()
-@property(retain,nonatomic) UITableViewCellLayoutManager* layoutManager;
-
 -(void)_updateSeparatorContent;
 -(id)init;
 -(id)initWithFrame:(CGRect)frame;
@@ -68,6 +66,8 @@
 -(BOOL)_isHighlighted;
 -(void)_updateHighlightColors;
 -(void)_drawContentInRect:(CGRect)rect selected:(BOOL)selected;
+-(void)setLayoutManager:(id)manager;
+-(id)layoutManager;
 -(void)setEditingStyle:(int)style;
 -(void)_syncAccessoryViewsIfNecessary;
 -(void)setHidesAccessoryWhenEditing:(BOOL)editing;
@@ -122,10 +122,10 @@
 @interface UITableViewCell (UITableViewCellInternal)
 @property(assign, nonatomic) BOOL wasSwiped;
 -(id)_tableView;
--(UILabel*)_textLabel:(BOOL)noCache;
--(UILabel*)_detailTextLabel:(BOOL)noCache;
--(UITextField*)_editableTextField:(BOOL)noCache;
--(UIImageView*)_imageView:(BOOL)noCache;
+-(id)_textLabel:(BOOL)label;
+-(id)_detailTextLabel:(BOOL)label;
+-(id)_editableTextField:(BOOL)field;
+-(id)_imageView:(BOOL)view;
 -(void)_setShowsReorderControl:(BOOL)control;
 -(void)_setEditingStyle:(int)style;
 -(void)_setShowingDeleteConfirmation:(BOOL)confirmation;

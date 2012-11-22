@@ -184,8 +184,8 @@
 -(void)setCountString:(id)string;
 -(void)setTableHeaderBackgroundColor:(id)color;
 -(id)tableHeaderBackgroundColor;
--(void)setMultiselectCheckmarkColor:(UIColor*)color;
--(UIColor*)multiselectCheckmarkColor;
+-(void)setMultiselectCheckmarkColor:(id)color;
+-(id)multiselectCheckmarkColor;
 -(void)_adjustTableHeaderAndFooterViews;
 -(void)_updateContentSize;
 -(void)_updateIndexFrame;
