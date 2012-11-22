@@ -7,7 +7,7 @@
 #import "NSCoding.h"
 #import <Foundation/NSObject.h>
 
-@class NSArray, NSMutableArray, NSString, UIKBAttributeList, UIKBKeylayout;
+@class NSArray, NSMutableArray, NSString, UIKBAttributeList;
 
 @interface UIKBKeyplane : NSObject <NSCoding> {
 	NSString* m_name;
@@ -22,19 +22,19 @@
 @property(copy, nonatomic) NSArray* supportedTypes;
 @property(readonly, assign, nonatomic) NSArray* keysOrderedByPosition;
 @property(readonly, assign, nonatomic) NSArray* keys;
-+(UIKBKeyplane*)keyplane;
-//-(id)init;
-//-(void)dealloc;
-//-(id)initWithCoder:(id)coder;
-//-(void)encodeWithCoder:(id)coder;
--(UIKBKeylayout*)keylayoutWithName:(NSString*)name;
++(id)keyplane;
+-(id)init;
+-(void)dealloc;
+-(id)initWithCoder:(id)coder;
+-(void)encodeWithCoder:(id)coder;
+-(id)keylayoutWithName:(id)name;
 -(void)layoutInRect:(CGRect)rect;
--(BOOL)looksLike:(UIKBKeyplane*)another;
+-(BOOL)looksLike:(id)like;
 -(BOOL)looksLikeShiftAlternate;
-//-(id)description;
+-(id)description;
 -(BOOL)usesAutoShift;
--(NSString*)alternateKeyplaneName;
--(NSString*)shiftAlternateKeyplaneName;
+-(id)alternateKeyplaneName;
+-(id)shiftAlternateKeyplaneName;
 -(BOOL)isShiftKeyplane;
 -(BOOL)shouldSkipCandidateSelection;
 -(BOOL)isShiftKeyPlaneChooser;

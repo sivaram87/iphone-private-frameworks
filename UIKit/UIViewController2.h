@@ -117,6 +117,7 @@
 -(BOOL)_allowsAutorotation;
 -(void)_setAllowsAutorotation:(BOOL)autorotation;
 -(BOOL)_isSupportedInterfaceOrientation:(int)orientation;
+-(BOOL)shouldAutorotateToInterfaceOrientation:(int)interfaceOrientation;
 -(id)rotatingHeaderViewForWindow:(id)window;
 -(id)rotatingHeaderView;
 -(id)rotatingContentViewForWindow:(id)window;
