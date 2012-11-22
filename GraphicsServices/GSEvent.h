@@ -111,12 +111,6 @@ extern "C" {
 		int a, b;
 	} GSResetIdleDurationInfo;
 	
-	typedef struct __GSEventProcessScriptInfo {
-		int type;
-		size_t length;
-		char data[0];
-	} GSEventProcessScriptInfo;
-	
 	typedef enum __GSEventType {
 		kGSEventLeftMouseDown    = 1,
 		kGSEventLeftMouseUp      = 2,
