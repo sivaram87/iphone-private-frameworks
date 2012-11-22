@@ -237,7 +237,7 @@
 -(void)setAutoresizesSubviews:(BOOL)subviews;
 -(BOOL)autoresizesSubviews;
 -(void)setAutoresizingMask:(unsigned)mask;
--(UIViewAutoresizing)autoresizingMask;
+-(unsigned)autoresizingMask;
 -(CGSize)sizeThatFits:(CGSize)fits;
 -(void)sizeToFit;
 -(void)resizeSubviewsWithOldSize:(CGSize)oldSize;

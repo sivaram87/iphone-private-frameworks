@@ -86,8 +86,8 @@
 -(void)setContentsIsSingleValue:(BOOL)value;
 -(int)textLoupeVisibility;
 -(void)setTextLoupeVisibility:(int)visibility;
--(UIReturnKeyType)returnKeyType;
--(void)setReturnKeyType:(UIReturnKeyType)type;
+-(int)returnKeyType;
+-(void)setReturnKeyType:(int)type;
 -(int)initialSelectionBehavior;
 -(void)setInitialSelectionBehavior:(int)behavior;
 -(id)editingDelegate;

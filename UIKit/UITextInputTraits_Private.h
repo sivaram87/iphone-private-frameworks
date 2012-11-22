@@ -33,8 +33,8 @@
 -(void)setTextLoupeVisibility:(int)visibility;
 -(unsigned)insertionPointWidth;
 -(void)setInsertionPointWidth:(unsigned)width;
--(UIColor*)insertionPointColor;
--(void)setInsertionPointColor:(UIColor*)color;
+-(id)insertionPointColor;
+-(void)setInsertionPointColor:(id)color;
 -(CFCharacterSetRef)textTrimmingSet;
 -(void)setTextTrimmingSet:(CFCharacterSetRef)set;
 @end

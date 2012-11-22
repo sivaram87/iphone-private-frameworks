@@ -6,15 +6,7 @@
 #import "UIKit-Structs.h"
 #import <Foundation/NSObject.h>
 
-@class NSMutableSet, NSMutableArray, UIView, UIEvent, NSSet;
-
-typedef enum {
-	UIGestureRecognizerStatePossible,
-	UIGestureRecognizerStateRecognized,
-	UIGestureRecognizerStateChanged,
-	UIGestureRecognizerStateFinished,
-	UIGestureRecognizerStateFailed
-} UIGestureRecognizerState;
+@class NSMutableSet, NSMutableArray, UIView, UIEvent;
 
 @interface UIGestureRecognizer : NSObject {
 	id _target;
@@ -37,7 +29,7 @@ typedef enum {
 }
 @property(assign, nonatomic) id target;
 @property(assign, nonatomic) SEL action;
-@property(assign, nonatomic) UIGestureRecognizerState state;
+@property(assign, nonatomic) int state;
 @property(assign, nonatomic, getter=isEnabled) BOOL enabled;
 @property(assign, nonatomic, getter=isExclusive) BOOL exclusive;
 @property(assign, nonatomic) BOOL delaysTouchesEnded;
@@ -51,11 +43,11 @@ typedef enum {
 -(void)dealloc;
 -(void)_clearUpdateTimer;
 -(void)reset;
--(void)setView:(UIView*)view;
--(void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event;
--(void)touchesMoved:(NSSet*)touches withEvent:(UIEvent*)event;
--(void)touchesEnded:(NSSet*)touches withEvent:(UIEvent*)event;
--(void)touchesCancelled:(NSSet*)touches withEvent:(UIEvent*)event;
+-(void)setView:(id)view;
+-(void)touchesBegan:(id)began withEvent:(id)event;
+-(void)touchesMoved:(id)moved withEvent:(id)event;
+-(void)touchesEnded:(id)ended withEvent:(id)event;
+-(void)touchesCancelled:(id)cancelled withEvent:(id)event;
 -(void)ignoreTouch:(id)touch forEvent:(id)event;
 -(void)_delayTouch:(id)touch forEvent:(id)event;
 -(BOOL)_isDelayingTouch:(id)touch;

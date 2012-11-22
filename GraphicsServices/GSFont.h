@@ -106,7 +106,7 @@ extern "C" {
 	CGFloat GSFontGetLineSpacing(GSFontRef font);	///< Get the font's line spacing.
 	CGFloat GSFontGetLineGap(GSFontRef font);	///< Get the font's line gap.
 	
-	typedef enum CGFontRenderingMode {
+	enum CGFontRenderingMode {
 		kCGFontRenderingModeAntialiased = 3
 	} CGFontRenderingMode;
 	
@@ -121,7 +121,7 @@ extern "C" {
 	CGFloat GSFontGetCapHeight(GSFontRef font);
 	CGFloat GSFontGetXHeight(GSFontRef font);
 	
-	GSFontTraitMask GSFontGetTraitsForName(const char* fontName);
+	GSFontTraits GSFontGetTraitsForName(const char* fontName);
 	Boolean GSFontIsFixedPitch(GSFontRef font);
 	
 	const char* GSFontGetFamilyName(GSFontRef font);

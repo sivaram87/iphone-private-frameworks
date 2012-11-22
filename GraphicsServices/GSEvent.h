@@ -33,14 +33,13 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef GSEVENT_H
 #define GSEVENT_H
 
-#include "GSWindow.h"
-
 #if __cplusplus
 extern "C" {
 #endif
 
 	typedef struct __GSEvent* GSEventRef;
 	
+#if 0
 	typedef struct GSPathInfo {
 		unsigned char pathIndex;		// 0x0 = 0x5C
 		unsigned char pathIdentity;		// 0x1 = 0x5D
@@ -90,7 +89,7 @@ extern "C" {
 	typedef struct __GSKeyInfo {
 		UniChar keycode, characterIgnoringModifier, character;
 		unsigned short characterSet;
-		unsigned char isKeyRepeating;
+		unsigned char isKeyRepeating
 	} GSKeyInfo;
 	
 	typedef struct __GSAccessoryKeyStateInfo {
@@ -169,7 +168,6 @@ extern "C" {
 	} GSEventType;
 	
 	typedef enum __GSEventSubType {
-		kGSEventSubTypeUnknown,
 	} GSEventSubType;
 	
 	typedef enum GSEventFlags {
@@ -197,11 +195,11 @@ extern "C" {
 	/// Get the CoreFoundation type identifier of GSEvent.
 	CFTypeID GSEventGetTypeID();
 	
-	void GSEventRegisterEventCallBack(void*);
-	void GSEventRegisterFindWindowCallBack(void*);
-	void GSEventRegisterTransformToWindowCoordsCallBack(void*);
+	void GSEventRegisterEventCallBack(...);
+	void GSEventRegisterFindWindowCallBack(...);
+	void GSEventRegisterTransformToWindowCoordsCallBack(...);
 	
-	GSHandInfo GSEventGetHandInfo(GSEventRef event);
+	GSEventHandInfo GSEventGetHandInfo(GSEventRef event);
 	GSPathInfo GSEventGetPathInfoAtIndex(GSEventRef event, CFIndex index);
 	void GSEventSetPathInfoAtIndex(GSEventRef event, GSPathInfo pathInfo, CFIndex index);
 	
@@ -253,7 +251,7 @@ extern "C" {
 	
 	const GSEventRecord* GSEventRecordGetRecordDataWithPlist(CFDictionaryRef plist);
 	
-	void GSEventSendOutOfLineData(void*);
+	void GSEventSendOutOfLineData(...);
 	
 	
 	
@@ -269,7 +267,7 @@ extern "C" {
 	GSEventRef GSEventCopy(GSEventRef event);
 	GSEventRef GSEventCreateAccessoryKeyStateEvent(GSEventRef event, GSEventFlags flags);
 	GSEventRef GSEventCreateWithEventRecord(const GSEventRecord* record);
-	GSEventRef GSEventCreateWithTypeAndLocation(GSEventType type, CGPoint location);
+#endif
 	
 #if __cplusplus
 }

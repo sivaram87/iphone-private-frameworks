@@ -20,13 +20,4 @@ typedef struct {
 	int _field2;
 } XXStruct_K5nmsA;
 
-#if __cplusplus
-extern "C" {
-#endif
-	@class UIImage, NSString;
 
-	UIImage* PSSettingsIconImageForUserAppBundlePath(NSString* path);
-
-#if __cplusplus
-}
-#endif
