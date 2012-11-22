@@ -4,7 +4,7 @@
  */
 
 #import <WebKit/DOMHTMLInputElement.h>
-#import <Availability2.h>
+#import <Availability.h>
 
 
 @interface DOMHTMLInputElement (UIWebFormAssistantExtras)

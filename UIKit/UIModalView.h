@@ -7,7 +7,7 @@
 #import "UIModalView.h"
 #import "UITextFieldDelegate.h"
 #import <UIKit/UIView.h>
-#import <Availability2.h>
+#import <Availability.h>
 
 @class UILabel, NSMutableArray, UIWindow, UIToolbar, NSString;
 @protocol UIModalViewDelegate;

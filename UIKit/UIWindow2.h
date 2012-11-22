@@ -6,7 +6,7 @@
 #import "UIKit-Structs.h"
 #import <UIKit/UIWindow.h>
 #import <UIKit/UIView.h>
-#import <Availability2.h>
+#import <Availability.h>
 
 @class NSUndoManager;
 

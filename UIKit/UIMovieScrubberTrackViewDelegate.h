@@ -4,7 +4,7 @@
  */
 
 #import "NSObject.h"
-#import <Availability2.h>
+#import <Availability.h>
 
 @protocol UIMovieScrubberTrackViewDelegate <NSObject>
 @optional

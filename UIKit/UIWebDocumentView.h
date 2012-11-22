@@ -12,7 +12,7 @@
 #import "BrowserDocumentController.h"
 #import "UITextSelectingContent.h"
 #import "UIWebTiledView.h"
-#import <Availability2.h>
+#import <Availability.h>
 
 @class UITextInputTraits, UIWebSelectionAssistant, WebViewReachabilityObserver, WebThreadSafeUndoManager, UIAutoscroll, WebView, DOMHTMLElement, UITextInteractionAssistant, UITextSelectionView, UIColor, CALayer, UIWebFormDelegate, UIInformalDelegate, WebPDFView, DOMNode;
 @protocol UIFormAssistantDelegate;

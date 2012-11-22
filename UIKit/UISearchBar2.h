@@ -6,7 +6,7 @@
 #import "UIKit-Structs.h"
 #import <UIKit/UISearchBar.h>
 #import <UIKit/UIView.h>
-#import <Availability2.h>
+#import <Availability.h>
 
 @class UILabel, UIButton, NSArray, UIImageView, NSString, UITextField, UIColor;
 @protocol UISearchBarDelegate;

@@ -7,7 +7,7 @@
 #import <UIKit/UIWebView.h>
 #import "UIKit-Structs.h"
 #import <UIKit/UIView.h>
-#import <Availability2.h>
+#import <Availability.h>
 
 @class NSURLRequest, UIWebViewInternal;
 @protocol UIWebViewDelegate;

@@ -4,7 +4,7 @@
  */
 
 #import "UIGestureRecognizer.h"
-#import <Availability2.h>
+#import <Availability.h>
 
 @class UIDelayedAction;
 

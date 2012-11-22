@@ -7,7 +7,7 @@
 #import "UITabBarDelegate.h"
 #import "UIKit-Structs.h"
 #import <UIKit/UIViewController.h>
-#import <Availability2.h>
+#import <Availability.h>
 
 @class UITabBar, NSMutableArray, UINavigationController, NSArray, UIView;
 @protocol UITabBarControllerDelegate;

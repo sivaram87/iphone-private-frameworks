@@ -5,7 +5,7 @@
 
 #import "UIKit-Structs.h"
 #import <Foundation/NSObject.h>
-#import <Availability2.h>
+#import <Availability.h>
 
 @class NSString, DOMElement, DOMHTMLInputElement, NSMutableDictionary;
 

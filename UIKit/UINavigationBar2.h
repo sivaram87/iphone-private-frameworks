@@ -7,7 +7,7 @@
 #import <UIKit/UINavigationBar.h>
 #import "UIKit-Structs.h"
 #import <UIKit/UIView.h>
-#import <Availability2.h>
+#import <Availability.h>
 
 @class NSArray, UIColor, UINavigationItem, NSMutableArray;
 

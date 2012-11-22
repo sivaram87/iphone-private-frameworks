@@ -6,7 +6,7 @@
 #import "UIKit-Structs.h"
 #import "NSCoding.h"
 #import <UIKit/UINavigationController.h>
-#import <Availability2.h>
+#import <Availability.h>
 
 @class NSArray, NSDictionary;
 @protocol UIImagePickerControllerDelegate, UINavigationControllerDelegate;
