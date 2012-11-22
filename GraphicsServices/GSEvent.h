@@ -37,7 +37,6 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <mach/message.h>
 #include <CoreFoundation/CoreFoundation.h>
 #include <CoreGraphics/CoreGraphics.h>
-#include <Availability.h>
 
 #if __cplusplus
 extern "C" {
@@ -214,25 +213,25 @@ extern "C" {
 	
 	GSEventRef GSEventCopy(GSEventRef event);
 	GSEventRef GSEventCreateWithEventRecord(const GSEventRecord* record);
-	GSEventRef GSEventCreateWithTypeAndLocation(GSEventType type, CGPoint location) __OSX_AVAILABLE_STARTING(__MAC_NA,__IPHONE_3_0);
-	GSEventRef GSEventCreateWithPlist(CFDictionaryRef dictionary) __OSX_AVAILABLE_STARTING(__MAC_NA,__IPHONE_2_2);
+	GSEventRef GSEventCreateWithTypeAndLocation(GSEventType type, CGPoint location);
+	GSEventRef GSEventCreateWithPlist(CFDictionaryRef dictionary);
 	
-	const GSEventRecord* GSEventRecordGetRecordDataWithPlist(CFDictionaryRef plist) __OSX_AVAILABLE_STARTING(__MAC_NA,__IPHONE_2_2);
-	void GSEventRecordGetRecordWithPlist(GSEventRef event_to_fill, CFDictionaryRef plist) __OSX_AVAILABLE_STARTING(__MAC_NA,__IPHONE_2_2);
-	CFDictionaryRef GSEventCreatePlistRepresentation(GSEventRef event) __OSX_AVAILABLE_STARTING(__MAC_NA,__IPHONE_2_2);
+	const GSEventRecord* GSEventRecordGetRecordDataWithPlist(CFDictionaryRef plist);
+	void GSEventRecordGetRecordWithPlist(GSEventRef event_to_fill, CFDictionaryRef plist);
+	CFDictionaryRef GSEventCreatePlistRepresentation(GSEventRef event);	
 	
 	Boolean GSEventShouldRouteToFrontMost(GSEventRef event);
 	void GSEventRemoveShouldRouteToFrontMost(GSEventRef event);
 
 	GSEventType GSEventGetType(GSEventRef event);
 	GSEventSubType GSEventGetSubType(GSEventRef event);
-	int GSEventGetWindowContextId(GSEventRef event) __OSX_AVAILABLE_STARTING(__MAC_NA,__IPHONE_3_0);
+	int GSEventGetWindowContextId(GSEventRef event);
 	CGPoint GSEventGetLocationInWindow(GSEventRef event);
 	CGPoint GSEventGetOuterMostPathPosition(GSEventRef event);
 	CGPoint GSEventGetInnerMostPathPosition(GSEventRef event);
 	CFAbsoluteTime GSEventGetTimestamp(GSEventRef event);
 	GSWindowRef GSEventGetWindow(GSEventRef event);
-	unsigned GSEventGetSenderPID(GSEventRef event) __OSX_AVAILABLE_STARTING(__MAC_NA,__IPHONE_3_0);
+	unsigned GSEventGetSenderPID(GSEventRef event);
 
 	const GSEventRecord* _GSEventGetGSEventRecord(GSEventRef event);
 	
@@ -244,7 +243,7 @@ extern "C" {
 #pragma mark Event queue processing
 	
 	Boolean GSEventQueueContainsMouseEvent();
-	mach_port_t GSGetPurpleApplicationPort() __OSX_AVAILABLE_STARTING(__MAC_NA,__IPHONE_3_0);
+	mach_port_t GSGetPurpleApplicationPort();
 	
 	Boolean GSGetTimeEventHandling();
 	void GSSetTimeEventHandling(Boolean enable);
@@ -255,7 +254,7 @@ extern "C" {
 	
 	mach_port_name_t GSRegisterPurpleNamedPort(const char* service_name);
 	mach_port_name_t GSCopyPurpleNamedPort(const char* service_name);
-	mach_port_name_t GSGetPurpleSystemEventPort() __OSX_AVAILABLE_STARTING(__MAC_NA,__IPHONE_3_0);
+	mach_port_name_t GSGetPurpleSystemEventPort();	
 	
 	void GSEventPopRunLoopMode(CFStringRef mode);	///< Stop the event run loop, and remove "mode" from the run loop mode stack if it is at the top.
 	void GSEventPushRunLoopMode(CFStringRef mode);	///< Stop the event run loop and push "mode" to the top of run loop mode stack.
@@ -269,7 +268,7 @@ extern "C" {
 #pragma mark -
 #pragma mark Sending events
 	void GSSendEvent(const GSEventRecord* record, mach_port_t port);
-	void GSSendSimpleEvent(GSEventType type, mach_port_t port) __OSX_AVAILABLE_STARTING(__MAC_NA,__IPHONE_3_0);	///< This calls GSSendEvent with an empty record.
+	void GSSendSimpleEvent(GSEventType type, mach_port_t port);	///< This calls GSSendEvent with an empty record.
 	void GSSendSystemEvent(const GSEventRecord* record);	///< Send event to the PurpleSystemEventPort.	
 	
 #pragma mark -
@@ -280,7 +279,7 @@ extern "C" {
 	/// Register a callback function that will be called when PurpleEventCallback() is called.
 	void GSEventRegisterEventCallBack(void(*callback)(GSEventRef event));
 	void GSEventRegisterFindWindowCallBack(int(*callback)(CGPoint position));
-	void GSEventRegisterTransformToWindowCoordsCallBack(void*) __OSX_AVAILABLE_STARTING(__MAC_NA,__IPHONE_3_0);
+	void GSEventRegisterTransformToWindowCoordsCallBack(void*);
 		
 #pragma mark -
 #pragma mark Touch events
@@ -288,8 +287,8 @@ extern "C" {
 	GSPathInfo GSEventGetPathInfoAtIndex(GSEventRef event, CFIndex index);
 	void GSEventSetPathInfoAtIndex(GSEventRef event, GSPathInfo pathInfo, CFIndex index);
 	
-	void GSEventSetHandInfoScale(GSEventRef event, CGFloat denominator) __OSX_AVAILABLE_BUT_DEPRECATED(__MAC_NA,__MAC_NA,__IPHONE_2_0,__IPHONE_3_1);
-	void GSEventChangeHandInfoToCancel(GSEventRef event) __OSX_AVAILABLE_STARTING(__MAC_NA,__IPHONE_3_0);
+	void GSEventSetHandInfoScale(GSEventRef event, CGFloat denominator);
+	void GSEventChangeHandInfoToCancel(GSEventRef event);
 	
 	void GSEventDisableHandEventCoalescing(Boolean disableHandCoalescing);
 	
@@ -358,7 +357,7 @@ extern "C" {
 	
 	void GSSendApplicationSuspendedSettingsUpdatedEvent(int x, int y, CFStringRef suspendedDefaultPNG, CFStringRef roleID);
 	void GSSendApplicationSuspendedEvent(int x, int y, CFStringRef suspendedDefaultPNG, CFStringRef roleID);
-	void GSEventFinishedActivating(Boolean b) __OSX_AVAILABLE_STARTING(__MAC_NA,__IPHONE_3_0);
+	void GSEventFinishedActivating(Boolean b);
 	
 	void GSEventSendApplicationOpenURL(CFURLRef url, mach_port_t port);
 	

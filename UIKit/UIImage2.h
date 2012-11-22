@@ -32,8 +32,8 @@
 -(BOOL)_isNamed;
 -(id)_flatImageWithWhite:(float)white alpha:(float)alpha;
 -(id)_bezeledImageWithRed:(float)red green:(float)green blue:(float)blue alpha:(float)alpha;
--(id)_imageScaledToSize:(CGSize)size interpolationQuality:(CGInterpolationQuality)quality;
--(id)_imageScaledToProportion:(CGFloat)proportion interpolationQuality:(CGInterpolationQuality)quality;
+-(id)_imageScaledToSize:(CGSize)size interpolationQuality:(int)quality;
+-(id)_imageScaledToProportion:(float)proportion interpolationQuality:(int)quality;
 @end
 
 @interface UIImage (UIImageDeprecated)
@@ -61,9 +61,9 @@
 @end
 
 @interface UIImage (UIImagePrivate)
-+(UIImage*)applicationImageNamed:(NSString*)name;
-+(UIImage*)kitImageNamed:(NSString*)name;
-+(UIImage*)defaultDesktopImage;
++(id)applicationImageNamed:(id)named;
++(id)kitImageNamed:(id)named;
++(id)defaultDesktopImage;
 +(void)setDesktopImageData:(id)data;
 +(id)imageFromAlbumArtData:(id)albumArtData height:(int)height width:(int)width cache:(BOOL)cache;
 -(id)initWithContentsOfFile:(id)file cache:(BOOL)cache;
